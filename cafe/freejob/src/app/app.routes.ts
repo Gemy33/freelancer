@@ -7,6 +7,7 @@ import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { CartComponent } from './component/cart/cart.component';
 import { MainlayoutComponent } from './main-layout/mainlayout/mainlayout.component';
 import { AuthlayoutComponent } from './auth-layout/authlayout/authlayout.component';
+import { RegisterComponent } from './component/register/register.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -16,9 +17,11 @@ export const routes: Routes = [
     {path:"من نحن",component:WhoWeAreComponent,title:"من نحن"},
     {path:"تواصل معنا",component:CommunicationUsComponent,title:"تواصل معنا"},
     {path:"المفضلة",component:WishlistComponent,title:"المفضلة"},
+    
    ]},
    {path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
     
        {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
+       {path:"register",component:RegisterComponent}
    ]},
 ];

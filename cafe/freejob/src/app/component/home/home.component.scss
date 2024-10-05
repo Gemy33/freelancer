@@ -1,4 +1,5 @@
 
+
 .h2
 {
 
@@ -84,3 +85,42 @@ text-align: right;
         
     }
 }
+
+.instadof,
+.desc {
+  font-family: Almarai;
+  font-size: 28.56px;
+  font-weight: 400;
+  line-height: 31.87px;
+}
+.colors {
+  font-family: Almarai;
+  font-size: 24.22px;
+  font-weight: 400;
+  line-height: 27.03px;
+}
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: chartreuse;
+  border-radius: 50%;
+  display: inline-block;
+}
+.main-col {
+  transition: all 0.5s;
+}
+.main-col:hover {
+  box-shadow: 0px 0px 5px black;
+  cursor: pointer;
+}
+.numberOfRate{
+    color: #D7A49A;
+}
+.shoppinNow{
+    background-color: #D7A49A;
+    padding: 13.18px 112.05px;
+    border: none;
+    margin-bottom: 7px;
+    color: white;
+}
+
