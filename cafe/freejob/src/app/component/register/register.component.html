@@ -1,13 +1,60 @@
 <div class="w-100 my-2 d-flex justify-content-center">
-    <img src="../../assets/Sign up-bro 1.png" class="" alt="">
+    <img src="../../../assets/image/Sign up-bro 1.png" class="" alt="">
 </div>
 <form (ngSubmit)="regiser_user()" [formGroup]="register" dir="rtl" class="w-75 m-auto">
-    <div class="group  " >
-        <p><input  type="text" formControlName="userName" class="input-name" placeholder="اسم المستخدم" id=""></p>
-        <p><input type="email" formControlName="email" placeholder=" البريدالالكتروني "id=""></p>
+    <div class="group  ">
+        <p><input type="text" formControlName="userName" class="input-name" placeholder="اسم المستخدم" id=""></p>
+        @if (register.get('userName')?.errors && (register.get('userName')?.touched ||
+        register.get('userName')?.dirty)) {
+        <div class="alert alert-danger p-2 pb-0 text-center">
+            @if (register.get("userName")?.getError("required")) { <p>يجب ادخال اسم المستخدم</p>
+            }
+            @if (register.get("userName")?.getError("minlength")) { <p>يجب ان يكون علي الاقل 5 احرف</p>
+            }
+            @if (register.get("userName")?.getError("maxlength")) { <p>يجب الا يزيد عن 20 حرف</p>
+            }
+        </div>
+        }
+        <p><input type="email" formControlName="email" placeholder=" البريدالالكتروني " id=""></p>
+        @if (register.get('email')?.errors && (register.get('email')?.touched ||
+        register.get('email')?.dirty)) {
+        <div class="alert alert-danger p-2 pb-0 text-center">
+            @if (register.get("email")?.getError("required")) { <p>يجب ادخال البريدالالكتروني</p>
+            }
+            @if (register.get("email")?.getError("email")) { <p dir="rtl"> gemy&#64;gmail.com ..يجب ان يكون صحيح مثل
+            </p>
+            }
+
+        </div>
+        }
         <p><input type="phone" formControlName="phoneNumber" placeholder=" رقم الجوال" id=""></p>
-        <p ><input  type="password" formControlName="password" placeholder="كلمه المرور " id=""></p>
-        <p><input type="password"  formGroupName="confirmPassword" placeholder="اعاده كلمه المرور " id=""></p>
+        @if (register.get('phoneNumber')?.errors && (register.get('phoneNumber')?.touched ||
+        register.get('phoneNumber')?.dirty)) {
+        <div class="alert alert-danger p-2 pb-0 text-center">
+            @if (register.get("phoneNumber")?.getError("required")) { <p>يجب ادخال اسم رقم الهاتف</p>
+            }
+
+        </div>
+        }
+        <p><input type="password" formControlName="password" placeholder="كلمه المرور " id=""></p>
+        @if (register.get('password')?.errors && (register.get('password')?.touched ||
+        register.get('password')?.dirty)) {
+        <div class="alert alert-danger p-2 pb-0 text-center">
+            @if (register.get("password")?.getError("required")) { <p>يجب ادخال كلمه السر </p>
+            }
+
+        </div>
+        }
+        <p><input type="password" formControlName="confirmPassword" placeholder="اعاده كلمه المرور " id=""></p>
+
+        @if (register.getError('mismatch') && (register.get('confirmPassword')?.touched ||
+        register.get('confirmPassword')?.dirty)) {
+        <p class="alert alert-danger p-2 ">يجب مطابقه كلمه السر</p>
+        }
+
+
     </div>
-    <button class="w-100 p-2">انشاء حساب</button>
+    <button [disabled]="register.invalid" class="w-100 p-2">انشاء حساب</button>
+    <p class="account "><a>هل لديك حساب بالفعل؟</a></p>
+    <!-- navigate to login page -->
 </form>

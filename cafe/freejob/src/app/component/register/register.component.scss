@@ -3,34 +3,37 @@
     border-radius: 21px;
     background-color: #FBFBFB;
     width: 100%;
-    padding: 12px 25px 12px 30px;
+    padding: 12px 40px 12px 30px;
     font-size: 14px;
     font-weight: 500;
 }
+.group input::first-letter{
+  margin-left: 100px;
+}
 input[type=password] {
     box-sizing: border-box;
-    background-image: url("../../assets/lock.png");
+    background-image: url("../../../assets/image/lock.png");
     background-position:99.5% 5px; 
     background-size: 30px;
     background-repeat: no-repeat;
   }
 input[type=email] {
     box-sizing: border-box;
-    background-image: url("../../assets/sms.png");
+    background-image: url("../../../assets/image/sms.png");
     background-position:99% 4px; 
     background-size: 30px;
     background-repeat: no-repeat;
   }
 input[type=phone] {
     box-sizing: border-box;
-    background-image: url("../../assets/Vector.png");
+    background-image: url("../../../assets/image/Vector.png");
     background-position:99% 5px ; 
     background-size: 25px;
     background-repeat: no-repeat;
   }
 input[type=text] {
     box-sizing: border-box;
-    background-image: url("../../assets/user.png");
+    background-image: url("../../../assets/image/user.png");
     background-position:99% 5px; 
     background-size: 30px;
     background-repeat: no-repeat;
@@ -40,9 +43,19 @@ button{
     border-radius: 13px 10px;
     border-radius: 8px;
     border: none ;
-    
-
+    color: white;
 }
 ::placeholder{
-    padding-right: 20px;
+    padding-right: 5px;
+}
+.account{
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+  
+}
+.account a{
+  color: #D7A49A;
+  text-decoration: none;
 }
