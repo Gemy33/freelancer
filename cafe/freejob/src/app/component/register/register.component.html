@@ -1,0 +1,13 @@
+<div class="w-100 my-2 d-flex justify-content-center">
+    <img src="../../assets/Sign up-bro 1.png" class="" alt="">
+</div>
+<form (ngSubmit)="regiser_user()" [formGroup]="register" dir="rtl" class="w-75 m-auto">
+    <div class="group  " >
+        <p><input  type="text" formControlName="userName" class="input-name" placeholder="اسم المستخدم" id=""></p>
+        <p><input type="email" formControlName="email" placeholder=" البريدالالكتروني "id=""></p>
+        <p><input type="phone" formControlName="phoneNumber" placeholder=" رقم الجوال" id=""></p>
+        <p ><input  type="password" formControlName="password" placeholder="كلمه المرور " id=""></p>
+        <p><input type="password"  formGroupName="confirmPassword" placeholder="اعاده كلمه المرور " id=""></p>
+    </div>
+    <button class="w-100 p-2">انشاء حساب</button>
+</form>

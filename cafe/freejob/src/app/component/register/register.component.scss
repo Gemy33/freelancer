@@ -1,0 +1,48 @@
+.group input{
+    border: solid 1px  #EBEAEB;
+    border-radius: 21px;
+    background-color: #FBFBFB;
+    width: 100%;
+    padding: 12px 25px 12px 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+input[type=password] {
+    box-sizing: border-box;
+    background-image: url("../../assets/lock.png");
+    background-position:99.5% 5px; 
+    background-size: 30px;
+    background-repeat: no-repeat;
+  }
+input[type=email] {
+    box-sizing: border-box;
+    background-image: url("../../assets/sms.png");
+    background-position:99% 4px; 
+    background-size: 30px;
+    background-repeat: no-repeat;
+  }
+input[type=phone] {
+    box-sizing: border-box;
+    background-image: url("../../assets/Vector.png");
+    background-position:99% 5px ; 
+    background-size: 25px;
+    background-repeat: no-repeat;
+  }
+input[type=text] {
+    box-sizing: border-box;
+    background-image: url("../../assets/user.png");
+    background-position:99% 5px; 
+    background-size: 30px;
+    background-repeat: no-repeat;
+  }
+button{
+    background-color: #D7A49A;
+    border-radius: 13px 10px;
+    border-radius: 8px;
+    border: none ;
+    
+
+}
+::placeholder{
+    padding-right: 20px;
+}
