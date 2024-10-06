@@ -1,11 +1,17 @@
 .group input{
     border: solid 1px  #EBEAEB;
-    border-radius: 21px;
-    background-color: #FBFBFB;
+    border-radius: 5px;
+    background-color: white;
     width: 100%;
     padding: 12px 40px 12px 30px;
     font-size: 14px;
     font-weight: 500;
+    // margin-bottom: 20px;
+}
+.width {
+  width: 310px;
+  text-align: center;
+  margin: auto;
 }
 .group input::first-letter{
   margin-left: 100px;

@@ -1,12 +1,15 @@
 import { Component, inject, signal } from '@angular/core';
 import {  FormBuilder,  FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthheaderComponent } from "../reuseable-components/authheader/authheader.component";
 
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule, FixedInfoComponent, AuthheaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

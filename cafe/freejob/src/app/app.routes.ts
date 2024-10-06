@@ -25,7 +25,7 @@ export const routes: Routes = [
     
        {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
        {path:"الدفع",component:PaymentComponent,title:"الدفع "},
-       {path:"انشاء حساب ",component:RegisterComponent ,title:"انشاء حساب"},
+       {path:"انشاء حساب",component:RegisterComponent ,title:"انشاء حساب"},
        {path:"تسجيل الدخول",component:LoginComponent,title:"تسجيل الدخول"},
    ]},
 ];

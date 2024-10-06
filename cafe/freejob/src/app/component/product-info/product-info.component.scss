@@ -17,11 +17,33 @@ width: 100%;
    border-radius: 4px;
    background-color: white;
 }
+.cordanate{
+    left: 5px;
+    // transform: translatey(50%);
+    color: #919191;
+}
+
+.imgwh{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.buton
+{
+    background-color: var(--button-color);
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 0;
+}
 @media (min-width:1000px){
     .font{
        font-size: 25px;
     }
     .fixWidth{
         width: 75% !important;
+    }
+    .area{
+    width: 50% !important;
+    
     }
 }

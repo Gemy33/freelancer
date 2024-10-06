@@ -1,7 +1,8 @@
-<div class="w-100 my-2 d-flex justify-content-center">
-    <img src="../../../assets/image/Sign up-bro 1.png" class="" alt="">
-</div>
-<form (ngSubmit)="regiser_user()" [formGroup]="register" dir="rtl" class="w-75 m-auto">
+<section class="width mt-3 ">
+
+    <app-authheader></app-authheader>
+
+<form (ngSubmit)="regiser_user()" [formGroup]="register" dir="rtl" class="w-100 mb-5 m-auto">
     <div class="group  ">
         <p><input type="text" formControlName="userName" class="input-name" placeholder="اسم المستخدم" id=""></p>
         @if (register.get('userName')?.errors && (register.get('userName')?.touched ||
@@ -54,7 +55,11 @@
 
 
     </div>
-    <button [disabled]="register.invalid" class="w-100 p-2">انشاء حساب</button>
-    <p class="account "><a>هل لديك حساب بالفعل؟</a></p>
+    <button [disabled]="register.invalid" class="w-50 p-2">انشاء حساب</button>
+    
     <!-- navigate to login page -->
 </form>
+
+</section>
+
+<app-fixed-info></app-fixed-info>

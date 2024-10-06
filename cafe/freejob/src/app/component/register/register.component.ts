@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
+import { AuthheaderComponent } from "../reuseable-components/authheader/authheader.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FixedInfoComponent, AuthheaderComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
