@@ -3,6 +3,13 @@
 .active{
     color: #E7D7C9  !important;
 }
+<<<<<<< HEAD
+:root{
+    --main-color:#D7A49A;
+    --secondary-color:#F4DEDACC;
+}
+=======
+>>>>>>> ebc9a887934db3a79b1e19f6062eaef55b5fd067
 
 .w-90
 {
@@ -12,16 +19,19 @@
     width: 40%;
 }
 .main-color {
-color:#F4DEDACC
+color:var(--secondary-color)
 }
 .main-bg{
-    background-color: #F4DEDACC;
+    background-color: var(--secondary-color);
 }
 .text-color{
-    color: #D7A49A;;
+    color: var(--main-color);
 }
 .btn-color{
-    background-color: #D7A49A;
+    background-color: var(--main-color);
 }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> ebc9a887934db3a79b1e19f6062eaef55b5fd067

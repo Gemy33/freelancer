@@ -1,0 +1,30 @@
+.width {
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+.form-control{
+    transition: box-shadow 0.1s;
+}
+.form-control:focus{
+box-shadow: 0 0 0 2px var(--main-color);
+border: 0;
+}
+.icon-width{
+    width: 54px;
+}
+.emailInput{
+    padding-right:33px ;
+    background-image: url(../../../assets/image/sms.png);
+    background-repeat: no-repeat;
+    background-position: 98%;
+    position: relative;
+}
+.passwordInput{
+    padding-right:33px ;
+    background-image: url(../../../assets/image/lock.png);
+    background-size: 9%;
+    background-repeat: no-repeat;
+    background-position: 98%;
+    position: relative;
+}

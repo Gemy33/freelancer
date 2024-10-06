@@ -8,6 +8,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { MainlayoutComponent } from './main-layout/mainlayout/mainlayout.component';
 import { AuthlayoutComponent } from './auth-layout/authlayout/authlayout.component';
 import { RegisterComponent } from './component/register/register.component';
+import { LoginComponent } from './component/login/login.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -22,6 +23,7 @@ export const routes: Routes = [
    {path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
     
        {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
-       {path:"register",component:RegisterComponent}
+       {path:"انشاء حساب ",component:RegisterComponent ,title:"انشاء حساب"},
+       {path:"تسجيل الدخول",component:LoginComponent,title:"تسجيل الدخول"},
    ]},
 ];
