@@ -15,8 +15,13 @@
                     </p>
                     <p class="d-flex my-2 flex-column">
                         <label for="f_name"> المنطقه / الدوله </label>
+                        <select class="mt-3 py-2 rounded-2 border-1">
+                            <option selected value="volvo">بني سويف</option>
+                            <option value="saab">القاهره</option>
+                            <option value="opel">الفيوم</option>
+                            <option value="audi">الشرفيه</option>
+                          </select>
 
-                        <input class="mt-3 py-2 rounded-2 border-1" type="" name="f_name" id="f_name">
                     </p>
                     <p class="d-flex my-2 flex-column">
                         <label for="f_name"> المدينه</label>
@@ -42,26 +47,43 @@
 
                 </form>
             </div>
-            <div class="col-md-7">
-                <div>
-                    <div class="d-flex justify-content-around align-items-center">
-                        <p class="fw-semibold">المجموع</p>
+            <div class="col-md-7  ">
+                <div class="position-relative line d-flex w-75 justify-content-between mb-4">
+                    <div>
                         <p class="fw-semibold">المنتج</p>
-                    </div>
-                    <div class="d-flex justify-content-around align-items-center">
-                        <p class="text-muted">مج حراراي مطبوع* 1</p>
-                        <p class="text-end">234 جنيه مصري</p>
-                    </div>
-                    <div class="d-flex justify-content-around align-items-center">
+                        <p>مج حراراي مطبوع</p>
                         <p class="fw-semibold">المجموع</p>
-                        <p>234 جنيه مصري</p>
-                    </div>
-                    <div class="d-flex justify-content-around align-items-center">
                         <p class="fw-semibold">المجموع الكلي</p>
+                    </div>
+                    <div>
+                        <p class="fw-bold">المجموع</p>
+                        <p>234 جنيه مصري</p>
+                        <p>234 جنيه مصري</p>
                         <p class="specific">390 جنيه مصري</p>
                     </div>
-
-
+                </div>
+                <div>
+                    <h3> <span class="dot"></span>طريقه الدفع</h3>
+                    <p class="text-muted">رقم بالدفع مباشرة في حسابنا البنكي. يرجى استخدام معرف الطلب الخاص بك كمرجع
+                        <br> للدفع. لن يتم شحن طلبك حتى
+                        تتم تصفية الأموال في حسابنا.
+                    </p>
+                    <p>
+                        <input type="radio" value="bank" name="type">
+                        <label class="text-muted pe-2" for="">الدفع عن طريق البنك مباشرة</label>
+                    </p>
+                    <img src="../../../assets/image/Group 1171275549.png" alt="">
+                    <p>
+                        <input type="radio" value="site" name="type">
+                        <label class="text-muted pe-2" for="">الدفع عند الاستلام</label>
+                    </p>
+                    <p class="fw-medium">سيتم استخدام بياناتك الشخصية لدعم تجربتك عبر هذا الموقع، ولإدارة الوصول
+                        <br>إلى حسابك، ولأغراض أخرى موضحة
+                        في سياسة الخصوصية الخاصة بنا.
+                    </p>
+                    <div class="  ">
+                        <button class="btn btn-outline-danger px-5 ">تاكيد</button>
+                    </div>
                 </div>
             </div>
         </div>
