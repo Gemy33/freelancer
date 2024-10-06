@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 import { NavbarComponent } from "./component/navbar/navbar.component";
 import { FooterComponent } from "./component/footer/footer.component";
+import { LoginComponent } from "./component/login/login.component";
 
 
 
@@ -11,7 +12,7 @@ import { FooterComponent } from "./component/footer/footer.component";
   standalone: true,
   
 
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoginComponent],
 
 
 
