@@ -24,7 +24,7 @@ table{
     flex-direction: column;
  
     padding: 10px 20px;
-    ;
+    
     width: 60%;
 }
 thead tr
@@ -70,5 +70,8 @@ tbody tr{
         width: 90%;
         margin: auto;
         border-radius: 5px;
+    }
+    th{
+        padding-right:0 ;
     }
 }
