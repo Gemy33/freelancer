@@ -1,0 +1,27 @@
+
+.path{
+background-color: #F9F1E7;
+width: 100%;
+}
+.quiecly{
+    border-bottom: 2px solid #E1B8AC;
+    padding: 0 0 5px 0;
+}
+.hirozentalLine{
+    width: 1px;
+    height: 30px;
+    background-color: black;
+}
+.Border{
+   border-color:var(--main-color);
+   border-radius: 4px;
+   background-color: white;
+}
+@media (min-width:1000px){
+    .font{
+       font-size: 25px;
+    }
+    .fixWidth{
+        width: 75% !important;
+    }
+}

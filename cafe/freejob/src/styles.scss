@@ -3,13 +3,13 @@
 .active{
     color: #E7D7C9  !important;
 }
-<<<<<<< HEAD
+
 :root{
     --main-color:#D7A49A;
     --secondary-color:#F4DEDACC;
+    --paragraph-color:#9F9F9F
 }
-=======
->>>>>>> ebc9a887934db3a79b1e19f6062eaef55b5fd067
+
 
 .w-90
 {
@@ -30,8 +30,9 @@ color:var(--secondary-color)
 .btn-color{
     background-color: var(--main-color);
 }
-<<<<<<< HEAD
-=======
+.p-color{
+    color:var(--paragraph-color)
+}
 
 
->>>>>>> ebc9a887934db3a79b1e19f6062eaef55b5fd067
+
