@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
 import { AuthheaderComponent } from "../reuseable-components/authheader/authheader.component";
@@ -21,6 +21,7 @@ export class RegisterComponent {
   is_shown:boolean=false;
   is_shown1:boolean=false;
 
+
   register:FormGroup=new FormGroup({
     confirmPassword:new FormControl(null,[Validators.required]),
     email:new FormControl(null,[Validators.email,Validators.required]),
@@ -38,10 +39,12 @@ export class RegisterComponent {
     console.log(this.register.value);
     //conact with back-end
     this._AuthService.register(this.register.value).subscribe({
-      next:(r)=>{console.log(r);
-       setTimeout(() => {
+      next:(r)=>{
+        console.log(r);
+       
+
         this._Router.navigate(["الصفحة الرئسية"]);
-       }, 2000);
+      
         this.shown_error=true;
         this.msg_error="Success";
 

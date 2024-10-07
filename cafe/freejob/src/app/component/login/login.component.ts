@@ -1,9 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import {  FormBuilder,  FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthheaderComponent } from "../reuseable-components/authheader/authheader.component";
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -16,18 +16,51 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent {
   private readonly _FormBuilder=inject(FormBuilder)
+  private readonly _AuthService=inject(AuthService)
+  private readonly _Router=inject(Router)
 
   loginForm:FormGroup=this._FormBuilder.group({
     emailOrUserName:[null,[Validators.required,Validators.email ]],//must get validation from back end dont forget that
-    password:[null,[Validators.required,Validators.minLength(6),Validators.maxLength(25)]]
+    password:[null,[Validators.required,Validators.minLength(5),Validators.maxLength(25)]]
   })
   spinner=signal<boolean>(false);
   onsendrequest=signal<boolean>(false);
+  error=signal<string>("");
+  iserror=signal<boolean>(false);
 
   OnSubmit(){
+    
     if(this.loginForm.valid){
       this.onsendrequest.set(true);
-     
+
+       this._AuthService.login(this.loginForm.value).subscribe({
+        next:(res)=>{
+          
+          console.log(res);
+          localStorage.setItem("userToken",res.token)
+          this.onsendrequest.set(false);
+          this.spinner.set(false)
+          this.iserror.set(false)
+          
+          
+            
+            this._Router.navigate(["/الصفحة الرئسية"])
+        
+            
+         
+
+        },
+        error:(err)=>{
+          console.log(err)
+          this.iserror.set(true);
+          this.error.set(err.error.message)
+          
+
+          this.onsendrequest.set(false);
+          this.spinner.set(false)
+
+        }
+       })
 
      this.spinner.set(true);
       console.log(this.loginForm)

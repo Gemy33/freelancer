@@ -6,6 +6,7 @@
     @if (shown_error) {
         <p class="alert alert-danger ">{{msg_error}}</p>
     }
+   
     <div class="group  ">
         <p><input type="text" formControlName="userName" class="input-name" placeholder="اسم المستخدم" ></p>
         @if (register.get('userName')?.errors && (register.get('userName')?.touched ||

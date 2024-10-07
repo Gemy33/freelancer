@@ -1,0 +1,1 @@
+export  let  baseurl:string="http://giftlyapp.runasp.net"

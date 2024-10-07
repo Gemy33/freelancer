@@ -10,6 +10,7 @@ import { AuthlayoutComponent } from './auth-layout/authlayout/authlayout.compone
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { PaymentComponent } from './component/payment/payment.component';
+import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -27,5 +28,6 @@ export const routes: Routes = [
        {path:"الدفع",component:PaymentComponent,title:"الدفع "},
        {path:"انشاء حساب",component:RegisterComponent ,title:"انشاء حساب"},
        {path:"تسجيل الدخول",component:LoginComponent,title:"تسجيل الدخول"},
+       {path:"forgetpassword",component:ForgetpasswordComponent,title:"forgetpassword"}
    ]},
 ];
