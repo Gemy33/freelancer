@@ -16,7 +16,7 @@
 .group input::first-letter{
   margin-left: 100px;
 }
-input[type=password] {
+.input-password {
     box-sizing: border-box;
     background-image: url("../../../assets/image/lock.png");
     background-position:99.5% 5px; 
@@ -37,7 +37,7 @@ input[type=phone] {
     background-size: 25px;
     background-repeat: no-repeat;
   }
-input[type=text] {
+.input-name {
     box-sizing: border-box;
     background-image: url("../../../assets/image/user.png");
     background-position:99% 5px; 
