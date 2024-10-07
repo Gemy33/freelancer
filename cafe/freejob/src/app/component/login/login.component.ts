@@ -3,6 +3,7 @@ import {  FormBuilder,  FormGroup, ReactiveFormsModule, Validators } from '@angu
 import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthheaderComponent } from "../reuseable-components/authheader/authheader.component";
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -22,9 +23,11 @@ export class LoginComponent {
   })
   spinner=signal<boolean>(false);
   onsendrequest=signal<boolean>(false);
+
   OnSubmit(){
     if(this.loginForm.valid){
       this.onsendrequest.set(true);
+     
 
      this.spinner.set(true);
       console.log(this.loginForm)
