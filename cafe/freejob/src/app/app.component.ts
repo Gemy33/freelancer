@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {  RouterOutlet } from '@angular/router';
 
 import { NavbarComponent } from "./component/navbar/navbar.component";
 import { FooterComponent } from "./component/footer/footer.component";
@@ -22,4 +22,6 @@ import { ProductInfoComponent } from "./component/product-info/product-info.comp
 })
 export class AppComponent {
   title = 'freejob';
+  
+  
 }
