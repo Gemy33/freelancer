@@ -38,12 +38,14 @@ export class RegisterComponent {
     console.log(this.register.value);
     //conact with back-end
     this._AuthService.register(this.register.value).subscribe({
-      next:(r)=>{console.log(r);
+      next:(r)=>{console.log(r.token);
+        localStorage.setItem("userToken",r.token);
        setTimeout(() => {
         this._Router.navigate(["الصفحة الرئسية"]);
        }, 2000);
         this.shown_error=true;
         this.msg_error="Success";
+        
 
       },
       error:(err)=>{console.log(err);
