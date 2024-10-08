@@ -39,7 +39,6 @@ export class RegisterComponent {
     console.log(this.register.value);
     //conact with back-end
     this._AuthService.register(this.register.value).subscribe({
-<<<<<<< HEAD
 
       next:(r)=>{console.log(r.token);
         localStorage.setItem("userToken",r.token);
@@ -55,32 +54,17 @@ export class RegisterComponent {
       error:(err)=>{console.log(err);
         this.msg_error=err.error.message;
         this.shown_error=true;
-=======
-      next:(r)=>{
-        localStorage.setItem("userToken",r.token);
-        this.shown_error=true;
-        this.msg_error="Success";
-        setTimeout(()=>{
-          this._Router.navigate(["الصفحة الرئسية"]);
-        },1000)
-      },
-      error:(err)=>{
->>>>>>> 8182927ee5bcdd35cc1ee631d331a18050dbaf86
-        
-          this.msg_error=err.error.message;
-          this.shown_error=true;
-          
+
+      
+ 
         }
       }
     )
+  }
+}
    
 
-<<<<<<< HEAD
+
 
     
-  }
-=======
   
->>>>>>> 8182927ee5bcdd35cc1ee631d331a18050dbaf86
-
-}};

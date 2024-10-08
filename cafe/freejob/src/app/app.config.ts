@@ -1,12 +1,11 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter, RouterModule, withViewTransitions } from '@angular/router';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { ApplicationConfig, } from '@angular/core';
+import { provideRouter,  withViewTransitions } from '@angular/router';
+import {  provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-<<<<<<< HEAD
 
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,21 +23,21 @@ export const appConfig: ApplicationConfig = {
 
 
 
-=======
 
-import {
-  HttpClientModule,
-  provideHttpClient,
-  withFetch,
-} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideRouter(routes),
-    provideClientHydration(),
-    provideHttpClient(withFetch()),
-    importProvidersFrom(BrowserAnimationsModule, RouterModule),
-  ],
-};
->>>>>>> 8182927ee5bcdd35cc1ee631d331a18050dbaf86
+// import {
+//   HttpClientModule,
+//   provideHttpClient,
+//   withFetch,
+// } from '@angular/common/http';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// export const appConfig: ApplicationConfig = {
+//   providers: [
+//     provideRouter(routes),
+//     provideClientHydration(),
+//     provideHttpClient(withFetch()),
+//     importProvidersFrom(BrowserAnimationsModule, RouterModule),
+//   ],
+// };
+

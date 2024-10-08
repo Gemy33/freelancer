@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { baseurl } from '../enviroment/baseurl';
 
@@ -17,4 +17,10 @@ export class AuthService {
   login(data:{}):Observable<any>{
     return this._HttpClient.post(`${baseurl}/api/Accountt/login`,data )
   }
+
+
+  // ------------------------------log-out-------------
+ 
+   
+
 }
