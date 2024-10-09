@@ -28,7 +28,8 @@ export class ProductsliderComponent {
     pullDrag: true,
     dots: true,
     dotsEach:4,
-    autoplay:false,
+    autoplay:true,
+    
     autoplayTimeout:3000,
     autoplayHoverPause:true,
     margin:5,

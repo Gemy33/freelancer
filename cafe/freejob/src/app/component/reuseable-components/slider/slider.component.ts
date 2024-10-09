@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { CategoriesService } from '../../../services/categories.service';
 
 @Component({
   selector: 'app-slider',
@@ -8,17 +9,17 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })
-export class SliderComponent {
-
+export class SliderComponent implements OnInit {
+private readonly _CategoriesService=inject(CategoriesService)
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
     rtl:true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     dotsEach:4,
-    autoplay:false,
+    autoplay:true,
     autoplayTimeout:3000,
     autoplayHoverPause:true,
     margin:5,
@@ -44,6 +45,22 @@ export class SliderComponent {
     },
     nav: true
   }
+ 
+  categories!:any[]
+
+  ngOnInit(): void {
+  
+    this._CategoriesService.getAllCategories().subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.categories=res
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
+
 }
 
 
