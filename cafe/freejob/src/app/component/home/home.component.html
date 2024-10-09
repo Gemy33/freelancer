@@ -45,115 +45,31 @@
     <h3 class="text-center my-5">منتجاتنا</h3>
     <div class="container-fluid">
         <div class="row text-center ">
+            @for (product of all_products.slice(0,15); track product.id) {
             <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
                 <div class="  mb-1 ">
                     <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
+                        <img [src]="product.photoUrl" height="240px" class="w-100 " alt="">
                     </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
+                    <p class="desc pt-2">{{product.name.split(" ",3).join(" ")}} </p>
+                    <p><span><i class="fa fa-star text-warning"></i></span><span>{{product.avgRating}}</span></p>
+                    <p class="instadof"> {{product.priceAfterSale | currency:"EGP"}} </p>
+                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره
+                        @for (color of product.colors; track $index) {
+                            <span class="dot" [style]="{backgroundColor:color}"></span>
+                        }
+                    </p>
                 </div>
                 <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
                     <span class="ms-1">تسوق الان </span>
                     <span class="fs-3">&#8592;</span> </button>
             </div>
-            <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
-                    <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
-                    </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
-                </div>
-                <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                    <span class="ms-1">تسوق الان </span>
-                    <span class="fs-3">&#8592;</span> </button>
-            </div>
-            <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
-                    <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
-                    </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
-                </div>
-                <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                    <span class="ms-1">تسوق الان </span>
-                    <span class="fs-3">&#8592;</span> </button>
-            </div>
-            <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
-                    <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
-                    </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
-                </div>
-                <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                    <span class="ms-1">تسوق الان </span>
-                    <span class="fs-3">&#8592;</span> </button>
-            </div>
-            <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
-                    <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
-                    </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
-                </div>
-                <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                    <span class="ms-1">تسوق الان </span>
-                    <span class="fs-3">&#8592;</span> </button>
-            </div>
-            <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
-                    <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
-                    </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
-                </div>
-                <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                    <span class="ms-1">تسوق الان </span>
-                    <span class="fs-3">&#8592;</span> </button>
-            </div>
-            <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
-                    <div class="mt-2">
-                        <img src="../../../assets/image/f731f5007692479bb78e3839437a9388.jpeg" class="w-100" alt="">
-                    </div>
-                    <p class="desc pt-2">مج حراراي مطبوع</p>
-                    <p><span><i class="fa fa-star text-danger"></i></span><span>765</span></p>
-                    <p class="instadof"> بدلا من 7854</p>
-                    <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره<span
-                            class="dot"></span> </p>
-                </div>
-                <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                    <span class="ms-1">تسوق الان </span>
-                    <span class="fs-3">&#8592;</span> </button>
-            </div>
+            }
+
         </div>
     </div>
 </section>
 
 <div class="w-100">
-    <app-productslider/>
+    <app-productslider />
 </div>

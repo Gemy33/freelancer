@@ -16,6 +16,7 @@ export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
     {path:"",redirectTo:"الصفحةالرئسية",pathMatch:'full',title:"الصفحة الرئسية"},
     {path:"الصفحة الرئسية",component:HomeComponent,title:"الصفحة الرئسية", },
+    {path:"التسوق/:Id",component:MarktingComponent,title:"التسوق"},
     {path:"التسوق",component:MarktingComponent,title:"التسوق"},
     {path:"من نحن",component:WhoWeAreComponent,title:"من نحن"},
     {path:"تواصل معنا",component:CommunicationUsComponent,title:"تواصل معنا"},

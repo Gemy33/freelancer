@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CategoriesService } from '../../../services/categories.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [CarouselModule],
+  imports: [CarouselModule,RouterLink],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })
@@ -47,6 +48,11 @@ private readonly _CategoriesService=inject(CategoriesService)
   }
  
   categories!:any[]
+  sendData(id:string){
+    
+
+
+  }
 
   ngOnInit(): void {
   

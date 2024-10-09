@@ -15,4 +15,8 @@ export class CategoriesService {
   getAllCategories():Observable<any>{
     return this._HttpClient.get(`${baseurl}/api/Category/GetAll`)
   }
+  get_specific_cat(id:String):Observable<any>
+  {
+    return this._HttpClient.get(`${baseurl}/api/Category/${id}`)
+  }
 }
