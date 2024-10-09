@@ -7,6 +7,7 @@ import { LoginComponent } from "./component/login/login.component";
 import { ProductInfoComponent } from "./component/product-info/product-info.component";
 import { ProductsliderComponent } from "./component/reuseable-components/productslider/productslider.component";
 import { SliderComponent } from "./component/reuseable-components/slider/slider.component";
+import { NotfoundComponent } from "./component/notfound/notfound.component";
 
 
 
@@ -15,7 +16,7 @@ import { SliderComponent } from "./component/reuseable-components/slider/slider.
   standalone: true,
   
 
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoginComponent, ProductInfoComponent, ProductsliderComponent, SliderComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoginComponent, ProductInfoComponent, ProductsliderComponent, SliderComponent, NotfoundComponent],
 
 
 

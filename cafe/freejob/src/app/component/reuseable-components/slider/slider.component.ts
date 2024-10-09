@@ -21,7 +21,7 @@ export class SliderComponent {
     autoplay:true,
     autoplayTimeout:3000,
     autoplayHoverPause:true,
-    margin:40,
+    margin:5,
     navSpeed: 700,
    
     navText: ['', ''],
@@ -31,7 +31,7 @@ export class SliderComponent {
       },
       400: {
        
-        items: 3,
+        items: 2,
       },
       740: {
        
