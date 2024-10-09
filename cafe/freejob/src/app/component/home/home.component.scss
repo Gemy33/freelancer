@@ -145,3 +145,8 @@ text-align: right;
     white-space: nowrap;
 }
 
+@media (max-width:600px) {
+    .wi{
+        width: 100%;
+    }
+}

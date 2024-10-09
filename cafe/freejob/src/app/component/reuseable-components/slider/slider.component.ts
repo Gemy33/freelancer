@@ -18,7 +18,7 @@ export class SliderComponent {
     pullDrag: true,
     dots: true,
     dotsEach:4,
-    autoplay:true,
+    autoplay:false,
     autoplayTimeout:3000,
     autoplayHoverPause:true,
     margin:5,
