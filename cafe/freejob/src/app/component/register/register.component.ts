@@ -24,10 +24,10 @@ export class RegisterComponent {
 
   register:FormGroup=new FormGroup({
     confirmPassword:new FormControl(null,[Validators.required]),
-    email:new FormControl(null,[Validators.email,Validators.required]),
+    email:new FormControl(null,[Validators.pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),Validators.required]),
     password:new FormControl(null,[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/)]),
     phoneNumber:new FormControl(null,[Validators.required]),
-    userName:new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(20)]),
+    userName:new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-Z0-9\-._@+]{5,30}$/)]),
 
   },{validators:this.passwordMatchValidator})
 

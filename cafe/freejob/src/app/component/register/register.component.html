@@ -14,10 +14,9 @@
         <div class="alert alert-danger p-2 pb-0 text-center">
             @if (register.get("userName")?.getError("required")) { <p>يجب ادخال اسم المستخدم</p>
             }
-            @if (register.get("userName")?.getError("minlength")) { <p>يجب ان يكون علي الاقل 5 احرف</p>
+            @if (register.get("userName")?.getError("pattern")) { <p>يجب ان يكون علي الاقل 5 احرف</p>
             }
-            @if (register.get("userName")?.getError("maxlength")) { <p>يجب الا يزيد عن 20 حرف</p>
-            }
+           
         </div>
         }
         <p><input type="email" formControlName="email" placeholder=" البريدالالكتروني " ></p>
@@ -26,7 +25,7 @@
         <div class="alert alert-danger p-2 pb-0 text-center">
             @if (register.get("email")?.getError("required")) { <p>يجب ادخال البريدالالكتروني</p>
             }
-            @if (register.get("email")?.getError("email")) { <p dir="rtl"> gemy&#64;gmail.com ..يجب ان يكون صحيح مثل
+            @if (register.get("email")?.getError("pattern")) { <p > gemy&#64;gmail.com ..يجب ان يكون صحيح مثل
             </p>
             }
 
