@@ -40,7 +40,8 @@ export class RegisterComponent {
     //conact with back-end
     this._AuthService.register(this.register.value).subscribe({
 
-      next:(r)=>{console.log(r.token);
+      next:(r)=>{
+        console.log(r.token);
         localStorage.setItem("userToken",r.token);
        setTimeout(() => {
 

@@ -51,7 +51,7 @@
             <a class="nav-link "routerLink="المفضلة" routerLinkActive="active"><img src="../../../assets/image/user.png" class="w-90" alt=""></a>
           </li>
          <li class="nav-item">
-              <a class="nav-link " href="http://google.com"   ><i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal"></i></a>
+              <a class="nav-link " routerLink="/تسجيل الدخول" [ngClass]="{'d-none':onlogout()}"  (click)="onlogout()"><i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal"></i></a>
          </li>
         </ul>
       </div>
