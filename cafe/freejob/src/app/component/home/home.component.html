@@ -47,10 +47,11 @@
         <div class="row text-center ">
             @for (product of all_products.slice(0,15); track product.id) {
             <div class=" col-6 col-sm-4 col-md-3 col-lg-2 main-col">
-                <div class="  mb-1 ">
+                <div class="  mb-1 " [routerLink]="['/تفاصيل',product.id]">
                     <div class="mt-2">
                         <img [src]="product.photoUrl" height="240px" class="w-100 " alt="">
                     </div>
+                    
                     <p class="desc pt-2">{{product.name.split(" ",3).join(" ")}} </p>
                     <p><span><i class="fa fa-star text-warning"></i></span><span>{{product.avgRating}}</span></p>
                     <p class="instadof"> {{product.priceAfterSale | currency:"EGP"}} </p>

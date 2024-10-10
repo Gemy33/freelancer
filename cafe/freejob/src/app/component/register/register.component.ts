@@ -41,12 +41,14 @@ export class RegisterComponent {
     this._AuthService.register(this.register.value).subscribe({
 
       next:(r)=>{
-        console.log(r.token);
-        localStorage.setItem("userToken",r.token);
-       setTimeout(() => {
+        console.log("islam token    ",r.token);
+        
+        if (typeof window !== 'undefined') {
 
-        this._Router.navigate(["الصفحة الرئسية"]);
-      
+        localStorage.setItem("userToken",r.token)
+        }
+       setTimeout(() => {
+        this._Router.navigate(["الصفحة الرئسية"]);    
         this.shown_error=true;
         this.msg_error="Success";
         

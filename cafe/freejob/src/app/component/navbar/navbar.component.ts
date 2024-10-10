@@ -16,14 +16,19 @@ private readonly _AuthService=inject(AuthService)
 
 
 onlogout(){
-  localStorage.removeItem("userToken");
+  if (typeof window !== 'undefined') {
+       localStorage.removeItem("userToken");
   
-if(localStorage.getItem("userToken")){
+     if(localStorage.getItem("userToken")){
   return true;
-}
-else{
+       }
+   else{
   return false
-}
+        }
+  }
+  else{
+    return false;
+  }
 }
 
 

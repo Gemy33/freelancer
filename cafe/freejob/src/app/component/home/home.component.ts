@@ -5,11 +5,12 @@ import { ProductsService } from '../../services/products.service';
 import { Products } from '../../interfaces/products';
 import { log } from 'console';
 import { CurrencyPipe } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent, CurrencyPipe ,ProductsliderComponent],
+  imports: [SliderComponent, CurrencyPipe ,ProductsliderComponent,RouterLink,RouterLinkActive],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 

@@ -11,16 +11,18 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
+import { ProductInfoComponent } from './component/product-info/product-info.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
-    {path:"",redirectTo:"الصفحةالرئسية",pathMatch:'full',title:"الصفحة الرئسية"},
+    {path:"",redirectTo:"/الصفحةالرئسية",pathMatch:'full',title:"الصفحة الرئسية"},
     {path:"الصفحة الرئسية",component:HomeComponent,title:"الصفحة الرئسية", },
     {path:"التسوق/:Id",component:MarktingComponent,title:"التسوق"},
     {path:"التسوق",component:MarktingComponent,title:"التسوق"},
     {path:"من نحن",component:WhoWeAreComponent,title:"من نحن"},
     {path:"تواصل معنا",component:CommunicationUsComponent,title:"تواصل معنا"},
     {path:"المفضلة",component:WishlistComponent,title:"المفضلة"},
+    {path:"تفاصيل/:id",component:ProductInfoComponent,title:"تفاصيل منتج"},
     
    ]},
    {path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
