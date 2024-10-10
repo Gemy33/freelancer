@@ -51,8 +51,18 @@
                     <div class="mt-2">
                         <img [src]="product.photoUrl" height="240px" class="w-100 " alt="">
                     </div>
+<<<<<<< HEAD
                     
                     <p class="desc pt-2">{{product.name.split(" ",3).join(" ")}} </p>
+=======
+                    <div class="d-flex  justify-content-between align-items-center">
+                        <p class="desc pt-2">{{product.name.split(" ",3).join(" ")}}</p>
+                        <span (click)="addFav(product.id)" class="p-2 border border-1 ">
+                            <i  class="fa fa-heart"></i>
+                        </span>
+                    </div>
+                    <!-- <p class="desc pt-2">{{product.name.split(" ",3).join(" ")}} </p> -->
+>>>>>>> 3ff626e5f27bc3639072178adbbdb7c1f3b18f81
                     <p><span><i class="fa fa-star text-warning"></i></span><span>{{product.avgRating}}</span></p>
                     <p class="instadof"> {{product.priceAfterSale | currency:"EGP"}} </p>
                     <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره

@@ -41,9 +41,17 @@ export class RegisterComponent {
     this._AuthService.register(this.register.value).subscribe({
 
       next:(r)=>{
+<<<<<<< HEAD
         console.log("islam token    ",r.token);
         
         if (typeof window !== 'undefined') {
+=======
+        console.log(r.token);
+        localStorage.setItem("userToken",r.token);
+        this._AuthService.updataIsNotlogin(false);
+        this._AuthService.decode();
+       setTimeout(() => {
+>>>>>>> 3ff626e5f27bc3639072178adbbdb7c1f3b18f81
 
         localStorage.setItem("userToken",r.token)
         }

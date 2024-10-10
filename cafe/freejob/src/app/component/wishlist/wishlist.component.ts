@@ -1,28 +1,30 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BgFixedComponent } from "../reuseable-components/bg-fixed/bg-fixed.component";
-import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
+import { HttpClient } from '@angular/common/http';
 import { FavouriteService } from '../../services/favourite.service';
-import { log } from 'util';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'app-wishlist',
   standalone: true,
-  imports: [BgFixedComponent, FixedInfoComponent],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  imports: [BgFixedComponent],
+  templateUrl: './wishlist.component.html',
+  styleUrl: './wishlist.component.scss'
 })
-export class CartComponent implements OnInit {
+export class WishlistComponent implements OnInit {
   private _FavouriteService=inject(FavouriteService)
   ngOnInit(): void {
     this._FavouriteService.getAllFav().subscribe({
       next:(res)=>{
         console.log(res);
+        
       },
       error:(err)=>{
         console.log(err);
         
       }
     })
+    
   }
+  
 
 }
