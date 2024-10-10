@@ -5,21 +5,17 @@ import { ProductsliderComponent } from '../reuseable-components/productslider/pr
 import { ProductsService } from '../../services/products.service';
 import { Products } from '../../interfaces/products';
 import { CurrencyPipe } from '@angular/common';
-<<<<<<< HEAD
+
 import { RouterLink, RouterLinkActive } from '@angular/router';
-=======
+
 import { FavouriteService } from '../../services/favourite.service';
 import { Router } from '@angular/router';
->>>>>>> 3ff626e5f27bc3639072178adbbdb7c1f3b18f81
 
 @Component({
   selector: 'app-home',
   standalone: true,
-<<<<<<< HEAD
   imports: [SliderComponent, CurrencyPipe ,ProductsliderComponent,RouterLink,RouterLinkActive],
-=======
-  imports: [SliderComponent, CurrencyPipe, ProductsliderComponent],
->>>>>>> 3ff626e5f27bc3639072178adbbdb7c1f3b18f81
+
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

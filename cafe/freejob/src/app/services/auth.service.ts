@@ -9,6 +9,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   constructor(private _HttpClient: HttpClient) {}
+  
   uer_info_form_token: BehaviorSubject<any> = new BehaviorSubject(null);
   private isNotlogin: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
