@@ -43,6 +43,8 @@ export class RegisterComponent {
       next:(r)=>{
         console.log(r.token);
         localStorage.setItem("userToken",r.token);
+        this._AuthService.updataIsNotlogin(false);
+        this._AuthService.decode();
        setTimeout(() => {
 
         this._Router.navigate(["الصفحة الرئسية"]);
