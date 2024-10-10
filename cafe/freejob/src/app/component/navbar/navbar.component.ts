@@ -17,38 +17,37 @@ import { NgClass } from '@angular/common';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-<<<<<<< HEAD
 
 private readonly _AuthService=inject(AuthService)
 
 
-onlogout(){
-  if (typeof window !== 'undefined') {
-       localStorage.removeItem("userToken");
+// onlogout(){
+//   if (typeof window !== 'undefined') {
+//        localStorage.removeItem("userToken");
   
-     if(localStorage.getItem("userToken")){
-  return true;
-       }
-   else{
-  return false
-        }
-  }
-  else{
-    return false;
-  }
-}
+//      if(localStorage.getItem("userToken")){
+//   return true;
+//        }
+//    else{
+//   return false
+//         }
+//   }
+//   else{
+//     return false;
+//   }
+// }
 
 
 
 
-=======
-  private readonly _AuthService = inject(AuthService);
+
+  // private readonly _AuthService = inject(AuthService);
   // islogin:boolean=true;
   
   get islogin(){
     return this._AuthService.getStataus();
   }
->>>>>>> 3ff626e5f27bc3639072178adbbdb7c1f3b18f81
+
 
   logOut()
   {
