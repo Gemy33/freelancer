@@ -17,6 +17,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+<<<<<<< HEAD
 
 
 // private readonly _AuthService=inject(AuthService)
@@ -25,6 +26,15 @@ export class NavbarComponent {
 // onlogout(){
  
 //   localStorage.removeItem("userToken");
+=======
+
+private readonly _AuthService=inject(AuthService)
+
+
+// onlogout(){
+//   if (typeof window !== 'undefined') {
+//        localStorage.removeItem("userToken");
+>>>>>>> 98b37d97dcfe41b470e890ee3f4e26c322bff586
   
 //      if(localStorage.getItem("userToken")){
 //   return true;
@@ -33,6 +43,7 @@ export class NavbarComponent {
 //   return false
 //         }
 //   }
+<<<<<<< HEAD
   
 private readonly _AuthService = inject(AuthService);
 // islogin:boolean=true;
@@ -47,10 +58,27 @@ logOut()
   this._AuthService.updataIsNotlogin(true);
 }
 }
+=======
+//   else{
+//     return false;
+//   }
+// }
+>>>>>>> 98b37d97dcfe41b470e890ee3f4e26c322bff586
 
 
 
 
+<<<<<<< HEAD
+=======
+
+  // private readonly _AuthService = inject(AuthService);
+  // islogin:boolean=true;
+  
+  get islogin(){
+    return this._AuthService.getStataus();
+  }
+
+>>>>>>> 98b37d97dcfe41b470e890ee3f4e26c322bff586
 
 
 
