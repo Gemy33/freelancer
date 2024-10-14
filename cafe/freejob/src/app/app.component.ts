@@ -11,12 +11,13 @@ import { NotfoundComponent } from "./component/notfound/notfound.component";
 
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
   
 
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoginComponent, ProductInfoComponent, ProductsliderComponent, SliderComponent, NotfoundComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoginComponent, ProductInfoComponent, ProductsliderComponent, SliderComponent, NotfoundComponent,],
 
 
 

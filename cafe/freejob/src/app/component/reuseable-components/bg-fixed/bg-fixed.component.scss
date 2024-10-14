@@ -1,9 +1,11 @@
 .bg-fix{
     background-image: url(../../../../assets/image/Rectangle\ 1.png);
-    height: 316px;
-    background-size: contain;
+    height: 200px;
+    // background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    width: 100%;
+    // background-color: red;
     // margin-top: 40px !important;
 }
 @media (max-width:770px) {

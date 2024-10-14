@@ -15,21 +15,29 @@ token='';
       if (typeof localStorage !== 'undefined')
       {
        this.token= localStorage.getItem('userToken') !;
+      //  console.log(this.token);
+       
       }
+     
       
     
   }
-  getAllFav(): Observable<any> {
-    return this._HttpClient.get(`${baseurl}/api/Favourite/GetAllFavorites`, { headers: { "token": this.token}});
+  print()
+  {
+    console.log(this.token);
+    
   }
-  // { headers: { "token": this.token}}
-  // addToFav(id: string): Observable<any> {
-  //   return this._HttpClient.post(`${baseurl}/api/Favourite/AddFavourite?ProductId=${id}`);
-  // }
-  // deleteFromFav(id: string): Observable<any> {
-  //   return this._HttpClient.post(
-  //     `${baseurl}/api/Favourite/DeleteFavourite?ProductId=${id}`,
-  //     { headers: { "token": this.token}}
-  //   );
-  // }
+  getAllFav(): Observable<any> {
+    return this._HttpClient.get(`${baseurl}/api/Favourite/GetAllFavorites`,{headers:{"Authorization":"Bearer "+this.token}});
+  }
+  
+  addToFav(id:string): Observable<any> {
+    return this._HttpClient.post(`${baseurl}/api/Favourite/AddFavourite?ProductId=${id}`,{},{headers:{"Authorization":"Bearer "+this.token}});
+  }
+  deleteFromFav(id: string): Observable<any> {
+    return this._HttpClient.post(
+      `${baseurl}/api/Favourite/DeleteFavourite?ProductId=${id}`,{},
+      {headers:{"Authorization":"Bearer "+this.token}}
+    );
+  }
 }

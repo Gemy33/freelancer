@@ -3,6 +3,7 @@ import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IproductInfo } from '../../interfaces/products';
 import { CurrencyPipe } from '@angular/common';
+import { FavouriteService } from '../../services/favourite.service';
 
 @Component({
   selector: 'app-product-info',
@@ -15,6 +16,7 @@ export class ProductInfoComponent {
 
   private readonly _ProductsService=inject(ProductsService)
   private readonly _ActivatedRoute=inject(ActivatedRoute)
+  private readonly _FavouriteService=inject(FavouriteService)
   id!:string
   products!:IproductInfo
   ngOnInit(): void {
@@ -38,8 +40,18 @@ export class ProductInfoComponent {
       }
     })
   }
-  addtowishlist(){
-    
+  addtowishlist(id:number){
+
+    this._FavouriteService.addToFav(id.toString()).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },
+      error:(err)=>{
+        console.log(err);
+        
+      }
+    })
   }
 
 }

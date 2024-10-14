@@ -15,7 +15,7 @@ import { ProductInfoComponent } from './component/product-info/product-info.comp
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
-    {path:"",redirectTo:"/الصفحةالرئسية",pathMatch:'full',title:"الصفحة الرئسية"},
+    {path:"",redirectTo:"/الصفحة الرئسية",pathMatch:'full',title:"الصفحة الرئسية"},
     {path:"الصفحة الرئسية",component:HomeComponent,title:"الصفحة الرئسية", },
     {path:"التسوق/:Id",component:MarktingComponent,title:"التسوق"},
     {path:"التسوق",component:MarktingComponent,title:"التسوق"},
@@ -26,7 +26,6 @@ export const routes: Routes = [
     
    ]},
    {path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
-    
        {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
        {path:"الدفع",component:PaymentComponent,title:"الدفع "},
        {path:"انشاء حساب",component:RegisterComponent ,title:"انشاء حساب"},
