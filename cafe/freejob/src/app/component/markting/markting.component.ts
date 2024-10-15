@@ -4,11 +4,12 @@ import { CategoriesService } from '../../services/categories.service';
 import { IProduct } from '../../interfaces/categories';
 import { CurrencyPipe } from '@angular/common';
 import { ProductsService } from '../../services/products.service';
+import { ProductComponent } from "../product/product.component";
 
 @Component({
   selector: 'app-markting',
   standalone: true,
-  imports: [CurrencyPipe,RouterLink],
+  imports: [CurrencyPipe, RouterLink, ProductComponent],
   templateUrl: './markting.component.html',
   styleUrl: './markting.component.scss'
 })

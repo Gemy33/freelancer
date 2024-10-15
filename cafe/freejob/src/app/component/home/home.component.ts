@@ -10,11 +10,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { FavouriteService } from '../../services/favourite.service';
 import { Router } from '@angular/router';
+import { ProductComponent } from "../product/product.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent, CurrencyPipe ,ProductsliderComponent,RouterLink,RouterLinkActive],
+  imports: [SliderComponent, CurrencyPipe, ProductsliderComponent, RouterLink, RouterLinkActive, ProductComponent],
 
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

@@ -5,12 +5,13 @@ import { FavouriteService } from '../../services/favourite.service';
 import { Products } from '../../interfaces/products';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ProductComponent } from "../product/product.component";
 
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [RouterLink,BgFixedComponent,CurrencyPipe],
+  imports: [RouterLink, BgFixedComponent, CurrencyPipe, ProductComponent],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })

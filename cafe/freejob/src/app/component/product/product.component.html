@@ -1,0 +1,46 @@
+<section>
+    <div class="container-fluid text-center">
+        <div class="row">
+           @for (product of allProduct; track product.id) {
+            <div class="col-lg-2 d-flex flex-column justify-content-between  mb-2   pb-2  col-md-3 col-sm-4 col-6 main-design ">
+                <div  class="d-flex flex-column m-0 p-0 justify-content-between" [routerLink]="['/تفاصيل',product.id]">
+                    <img [src]="product.photoUrl" class="w-100 fixed-height" height="250px"  alt="">
+                    
+                    <div class="d-flex  position-relative  justify-content-center align-items-center">
+
+                        <p class="fw-semibold ms-2 fs-5">{{product.name}}</p>
+                        @if (favourit) {
+                            <div class="bg-danger-subtle rounded-circle p-1 position-absolute start-0  "><img src="../../../assets/image/1111.png" width="30px" alt=""></div>
+                        }
+                        
+                    </div>
+                    <!-- <p>{{product.avgRating}}<i class="fa fa-star"></i></p> -->
+                   <div class="text">
+                    {{product.avgRating}}
+                    @if(product.avgRating % 1 !==0){
+                        <i class="fa-solid fa-star-half-stroke text bg"></i>
+                        }
+                    @for (star of [1,2,3,4,5].slice(0,product.avgRating); track
+                    $index) {
+                        
+                    <i class="fas fa-star text"></i>
+                    } 
+                    
+                   </div>
+                   
+                    <p class="fw-semibold fs-6">{{product.priceAfterSale }} بدلا من {{product.totalPrice }}</p>
+                    <p class="d-flex align-items-center h6 justify-content-center p-small">الوان متوفرة 
+                        @for (color of product.colors; track $index) {
+                            <span class="dot" [style]="{backgroundColor:color}"></span>
+                        }
+                    </p>
+                </div>
+                <button class="d-flex btn-design text-white  bg-btn border-0 justify-content-center align-items-center">
+                    <span class="ms-1 ">تسوق الان </span>
+                    <span class="fs-3">&#8592;</span> 
+                </button>
+            </div>
+           }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+:root
+{
+    --main-color:#D7A49A;
+}
+.dot {
+  height: 20px;
+  width: 20px;
+  margin-left: 1px;
+  background-color: chartreuse;
+  border-radius: 50%;
+  display: inline-block;
+}
+.fixed-height {
+  max-height: 250px;
+  padding-top: 10px;
+}
+.main-design {
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.main-design:hover {
+  box-shadow: 1px 1px 8px black;
+  transform: translateY(0);
+}
+.main-design:hover .btn-design {
+//   box-shadow: 1px 1px 8px black;
+  transform: translateY(0);
+}
+.bg-btn
+{
+    background-color: var(--main-color);
+}
+.text
+{
+    color: var(--main-color);
+}
+.btn-design
+{
+    transition: all .5s;
+    width: 90%;
+    margin: auto;
+    transform: translateY(150%);
+}
+@media (max-width:340px) {
+    .p-small
+    {
+        padding-top: 10px !important;
+    }
+}

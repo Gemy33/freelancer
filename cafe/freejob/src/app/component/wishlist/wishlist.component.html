@@ -1,39 +1,5 @@
 <app-bg-fixed page_tital="المفضله" path="الصفحه الرئسيه > المفضله"/>
-    <section class="mt-5">
-        <div class="container-fluid">
-            <div class="row text-center  ">
-               @for (product of allFavProduct; track product.id) {
-                <div class="col-lg-2 d-flex flex-column justify-content-between  col-md-3 col-sm-4 main-col">
-                    <div class=" mb-1 d-flex flex-column justify-content-between ">
-                        <div class="mt-2">
-                            <img [src]="product.photoUrl" class="w-100" height="250px" alt="">
-                        </div>
-                        <div class="d-flex  justify-content-between align-items-center">
-                            <p class="desc pt-2"> {{product.name}} </p>
-                            <span (click)="removeFromFAv(product.id)" class="p-2  border border-1 ">
-                                <i class="fa fa-heart"></i>
-                            </span>
-                        </div>
-                        <p><span><i class="fa fa-star text-danger"></i></span><span>{{product.avgRating}}</span></p>
-                        <p class="instadof">   {{product.priceAfterSale}}</p>
-                        <p class="d-flex colors justify-content-center align-items-center">الالوان المتوفره
-                            @for (color of product.colors; track $index) {
-                                <span class="dot" [style]="{backgroundColor:color}"></span> 
-                            }</p>
-                    </div>
-                    <button class="w-100 shoppinNow justify-content-center p-1 align-items-center d-flex">
-                        <span class="ms-1">تسوق الان </span>
-                        <span class="fs-3">&#8592;</span> </button>
-                </div>
-               }
-           
-    
-    
-    
-    
-            </div>
-        </div>
-    </section>
+    <app-product [allProduct]="allFavProduct" [favourit]="true"/>
     <div class="text-center my-4 position-relative  fw-semibold">
         <p class="end-fav">لقد شاهدت 6 منتج من 6 منتج</p>
     </div>
