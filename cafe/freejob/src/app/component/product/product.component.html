@@ -10,7 +10,7 @@
 
                         <p class="fw-semibold ms-2 fs-5">{{product.name}}</p>
                         @if (favourit) {
-                            <div class="bg-danger-subtle rounded-circle p-1 position-absolute start-0  "><img src="../../../assets/image/1111.png" width="30px" alt=""></div>
+                            <div class=" rounded-circle p-1 position-absolute start-0  " (click)="onclick($event,product.id);$event.stopPropagation()"> <i  class="fas fa-heart text-danger"></i></div>
                         }
                         
                     </div>

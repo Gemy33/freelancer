@@ -13,11 +13,13 @@ import { FavouriteService } from '../../services/favourite.service';
   styleUrl: './product-info.component.scss'
 })
 export class ProductInfoComponent {
-
-  private readonly _ProductsService=inject(ProductsService)
+  
+  
   private readonly _ActivatedRoute=inject(ActivatedRoute)
+  private readonly _ProductsService=inject(ProductsService)
   private readonly _FavouriteService=inject(FavouriteService)
   id!:string
+  color:boolean=false;
   products!:IproductInfo
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe((p)=>{
@@ -26,6 +28,22 @@ export class ProductInfoComponent {
 
     }
   )
+
+   this._FavouriteService.getAllFav().subscribe({
+    next:(res)=>{
+      console.log("all fav  ; ", res)
+      for(let i=0;i<res.length;++i){
+        if(res[i].id==this.id){
+          this.color=true
+        }
+      }
+    
+    },
+    error:(err)=>{
+      console.log("fav ",err)
+    }
+   })
+   
     this._ProductsService.specificProduct(this.id).subscribe({
       next:(res)=>{
         console.log(res);
@@ -41,17 +59,31 @@ export class ProductInfoComponent {
     })
   }
   addtowishlist(id:number){
-
-    this._FavouriteService.addToFav(id.toString()).subscribe({
-      next:(res)=>{
-        console.log(res);
-        
-      },
-      error:(err)=>{
-        console.log(err);
-        
-      }
-    })
+      
+    if(this.color){
+      this.color=false;
+      this._FavouriteService.deleteFromFav(id.toString()).subscribe({
+        next:(res)=>{
+          console.log(res);
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      })
+    }
+    else{
+      this.color=true
+      this._FavouriteService.addToFav(id.toString()).subscribe({
+        next:(res)=>{
+          console.log(res);
+          
+        },
+        error:(err)=>{
+          console.log(err);
+          
+        }
+      })
+    }
   }
 
 }

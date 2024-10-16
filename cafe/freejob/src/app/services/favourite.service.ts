@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { baseurl } from '../enviroment/baseurl';
 
@@ -8,6 +8,7 @@ import { baseurl } from '../enviroment/baseurl';
 })
 export class FavouriteService {
   
+allfav=signal<[]>([])
 
 token='';
   constructor(private _HttpClient: HttpClient) {
