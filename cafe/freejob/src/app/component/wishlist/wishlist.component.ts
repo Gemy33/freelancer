@@ -36,20 +36,21 @@ export class WishlistComponent implements OnInit {
     
   }
   
-  removeFromFAv(id:number)
-  {
+  // removeFromFAv(id:number)
+  // {
 
-    this._FavouriteService.deleteFromFav(id.toString()).subscribe({
-      next:(res)=>{
-        console.log(res);
+  //   this._FavouriteService.deleteFromFav(id.toString()).subscribe({
+  //     next:(res)=>{
+  //       console.log(res);
         
-      },
-      error:(err)=>{
-        console.log(err);
+  //     },
+  //     error:(err)=>{
+  //       console.log(err);
         
-      }
-    })
+  //     }
+  //   })
 
-  }
+  // }
+ 
 
 }

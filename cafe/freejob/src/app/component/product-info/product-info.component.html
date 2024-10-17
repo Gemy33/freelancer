@@ -142,18 +142,18 @@
         <i class="fa fa-star text-white "></i>
       </li>
     </ul>
-    <form>
+    <form ngSubmit="">
       <div class="flex flex-column gap-3 mb-3">
         <label for="username" class="font-semibold "> اكتب تقييمك </label>
         <textarea  id="username" class="flex-auto border-color w-100"></textarea> 
       </div>
       <div class="flex flex-column gap-3 mb-3">
         <label for="username" class="font-semibold "> الاسم </label>
-        <input  id="username" class="flex-auto border-color p-2 border-1  w-100"  />
+        <input  id="username" class="flex-auto  p-2  border-1 border-color  w-100"  />
       </div>
       <div class="flex flex-column gap-3 mb-5">
         <label for="email" class="font-semibold ">البريد الالكتروني</label>
-        <input  id="email" class="flex-auto border-color p-2  w-100"  />
+        <input  id="email" class="flex-auto border-color border-1 p-2  w-100"  />
       </div>
       <!-- <div class=" position-relative  bg-danger ">
         <input type="checkbox"  id="checkbox" class="position-absolute start-0 w-100"  />
@@ -163,11 +163,25 @@
         <input type="checkbox">
         أوافق على الشروط والأحكام
       </div>
-      <button class="bg-color btn w-25 m-auto mb-5">تقييم</button>
+      <button (click)="thanks.classList.remove('d-none');thanks.classList.add('d-flex')"  class="bg-color btn w-25 m-auto mb-5">تقييم</button>
       
     </form>
   </div>
 
+</section>
+<section #thanks class="thanks position-fixed d-none justify-content-center align-items-center top-0  start-0 bottom-0 end-0 bg-opacity-50 bg-secondary">
+  <div class="nested w-25 m-auto pt-3 text-center py-4   bg-white">
+    <p class="h6">شكرا علي تقييمك !</p>
+    <p>تم مشاركة تقييمك بنجاح!</p>
+    <ul class="list-unstyled justify-content-center pe-0 d-flex ">
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+    </ul>
+    <a routerLink="/الصفحة الرئسية" class="btn bg-color p-2" >الرجوع الي الصفحة االرئيسية</a>
+    </div>
 </section>
 
 
