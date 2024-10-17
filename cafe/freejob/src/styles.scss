@@ -1,73 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 
 
-
-
-.active{
-    color: #E7D7C9  !important;
+.active {
+  color: #e7d7c9 !important;
 }
 
 .montserrat {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 36px;
-    font-style: normal;
-  }
-  .almarai-light {
-    font-family: "Almarai", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-  }
-:root{
-    --main-color:#D7A49A;
-    --secondary-color:#F4DEDACC;
-    --paragraph-color:#9F9F9F;
-    --button-color:#F7D7DA
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  font-style: normal;
 }
-.cp{
-    cursor: pointer;
+.almarai-light {
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+:root {
+  --main-color: #d7a49a;
+  --secondary-color: #f4dedacc;
+  --paragraph-color: #9f9f9f;
+  --button-color: #f7d7da;
+}
+.cp {
+  cursor: pointer;
 }
 
-
-.w-90
-{
-    width: 90%;
+.w-90 {
+  width: 90%;
 }
-.w-40{
-    width: 40%;
+.w-40 {
+  width: 40%;
 }
 .main-color {
-color:var(--secondary-color)
+  color: var(--secondary-color);
 }
-.main-bg{
-    background-color: var(--secondary-color);
+.main-bg {
+  background-color: var(--secondary-color);
 }
-.text-color{
-    color: var(--main-color);
+.text-color {
+  color: var(--main-color);
 }
-.btn-color{
-    background-color: var(--main-color);
-
+.btn-color {
+  background-color: var(--main-color);
 }
-.p-color{
-    color:var(--paragraph-color)
+.p-color {
+  color: var(--paragraph-color);
 }
-.pointer{
-    cursor: pointer;
+.pointer {
+  cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
