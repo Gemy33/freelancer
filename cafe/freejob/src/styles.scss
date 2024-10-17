@@ -25,11 +25,18 @@
     font-style: normal;
     font-size: 16px;
   }
+  .almarai-larg {
+    font-family: "Almarai", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+  }
 :root{
     --main-color:#D7A49A;
     --secondary-color:#F4DEDACC;
     --paragraph-color:#9F9F9F;
-    --button-color:#F7D7DA
+    --button-color:#F7D7DA;
+    --button-hover:#ecbdb3;
 }
 .cp{
     cursor: pointer;
@@ -39,6 +46,9 @@
 .w-90
 {
     width: 90%;
+}
+.w-80{
+    width: 80%;
 }
 .w-40{
     width: 40%;
@@ -61,6 +71,11 @@ color:var(--secondary-color)
 }
 .pointer{
     cursor: pointer;
+}
+.width {
+    width: 300px;
+    text-align: center;
+    margin: auto;
 }
 
 
