@@ -1,0 +1,35 @@
+.hrw{
+    width: 150px;
+}
+.fs-12{
+    font-size: 12px;
+    color: var(--main-color);
+}
+.bord{
+    border: 1px solid var(--main-color);
+    padding: 10px;
+}
+.w-250px{
+    width: 250px;
+    
+}
+.vertic1{
+
+    width:calc(50% - 44px);
+    height: 2px;
+    background-color: teal;
+    left: 28px;
+    
+    z-index: -1;
+
+}
+.vertic2{
+
+    width:calc(50% - 44px);
+    height: 2px;
+    background-color: teal;
+    right: 28px;
+    
+    z-index: -1;
+
+}

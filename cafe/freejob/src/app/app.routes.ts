@@ -12,6 +12,8 @@ import { LoginComponent } from './component/login/login.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
 import { ProductInfoComponent } from './component/product-info/product-info.component';
+import { TrackingComponent } from './component/tracking/tracking.component';
+import { TrackingInfoComponent } from './component/tracking-info/tracking-info.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -24,12 +26,14 @@ export const routes: Routes = [
     {path:"المفضلة",component:WishlistComponent,title:"المفضلة"},
     {path:"تفاصيل/:id",component:ProductInfoComponent,title:"تفاصيل منتج"},
     
-   ]},
-   {path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
-       {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
-       {path:"الدفع",component:PaymentComponent,title:"الدفع "},
-       {path:"انشاء حساب",component:RegisterComponent ,title:"انشاء حساب"},
-       {path:"تسجيل الدخول",component:LoginComponent,title:"تسجيل الدخول"},
-       {path:"forgetpassword",component:ForgetpasswordComponent,title:"forgetpassword"}
-   ]},
-];
+]},
+{path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
+    {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
+    {path:"الدفع",component:PaymentComponent,title:"الدفع "},
+    {path:"انشاء حساب",component:RegisterComponent ,title:"انشاء حساب"},
+    {path:"تسجيل الدخول",component:LoginComponent,title:"تسجيل الدخول"},
+    {path:"forgetpassword",component:ForgetpasswordComponent,title:"forgetpassword"},
+    {path:"تعقب",component:TrackingComponent,title:"تعقب"},
+    {path:"حاله التعقب",component:TrackingInfoComponent,title:"تعقب"},
+]},
+]

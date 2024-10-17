@@ -15,10 +15,36 @@
 }
 
 .montserrat {
+<<<<<<< HEAD
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 36px;
   font-style: normal;
+=======
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    font-style: normal;
+  }
+  .almarai-light {
+    font-family: "Almarai", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+  }
+  .almarai-larg {
+    font-family: "Almarai", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+  }
+:root{
+    --main-color:#D7A49A;
+    --secondary-color:#F4DEDACC;
+    --paragraph-color:#9F9F9F;
+    --button-color:#F7D7DA;
+    --button-hover:#ecbdb3;
+>>>>>>> 19dbcb646547e547cfce26c28c1e94b874b34613
 }
 .almarai-light {
   font-family: "Almarai", sans-serif;
@@ -39,8 +65,16 @@
 .w-90 {
   width: 90%;
 }
+<<<<<<< HEAD
 .w-40 {
   width: 40%;
+=======
+.w-80{
+    width: 80%;
+}
+.w-40{
+    width: 40%;
+>>>>>>> 19dbcb646547e547cfce26c28c1e94b874b34613
 }
 .main-color {
   color: var(--secondary-color);
@@ -60,3 +94,20 @@
 .pointer {
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+.width {
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+>>>>>>> 19dbcb646547e547cfce26c28c1e94b874b34613
