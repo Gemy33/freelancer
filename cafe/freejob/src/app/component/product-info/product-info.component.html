@@ -24,12 +24,14 @@
         <p class="h5 p-color px-3">{{products.priceAfterSale |currency:"Egy"}}</p>
         <div class="d-flex px-3 my-2 justify-content-start gap-3 align-items-center">
           <p class="m-0 ">اضافة الي المفضلة</p>
+
           @if(color){
           <i class="fa-solid fa-heart cp text-danger fa-lg" (click)="addtowishlist(products.id)"></i>
           }
           @else {
           <i class="fa-regular fa-heart cp fa-lg" (click)="addtowishlist(products.id)"></i>
           }
+          
         </div>
         <div class=" d-flex gap-3 px-3 align-items-center   ">
           <div>

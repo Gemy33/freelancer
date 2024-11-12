@@ -66,9 +66,9 @@ export class ProductInfoComponent {
   }
   visible: boolean = false;
 
-  showDialog() {
-      this.visible = true;
-  }
+  // showDialog() {
+  //     this.visible = true;
+  // }
   addtowishlist(id:number){
       
     if(this.color){
