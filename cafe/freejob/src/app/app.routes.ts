@@ -14,6 +14,8 @@ import { ForgetpasswordComponent } from './component/forgetpassword/forgetpasswo
 import { ProductInfoComponent } from './component/product-info/product-info.component';
 import { TrackingComponent } from './component/tracking/tracking.component';
 import { TrackingInfoComponent } from './component/tracking-info/tracking-info.component';
+import { UserSettingComponent } from './component/reuseable-components/user-setting/user-setting.component';
+import { AcountOverviewComponent } from './component/acount-overview/acount-overview.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -35,5 +37,8 @@ export const routes: Routes = [
     {path:"forgetpassword",component:ForgetpasswordComponent,title:"forgetpassword"},
     {path:"تعقب",component:TrackingComponent,title:"تعقب"},
     {path:"حاله التعقب",component:TrackingInfoComponent,title:"تعقب"},
+    {path:"الاعدادات",component:UserSettingComponent,title:"الاعدادات"},
+    {path:"عام",component:AcountOverviewComponent,title:"الاعدادات"},
+    //must make not found component;
 ]},
 ]
