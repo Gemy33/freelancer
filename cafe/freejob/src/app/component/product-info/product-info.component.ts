@@ -1,14 +1,20 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, viewChild, ViewChild } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IproductInfo } from '../../interfaces/products';
 import { CurrencyPipe } from '@angular/common';
 import { FavouriteService } from '../../services/favourite.service';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { AvatarModule } from 'primeng/avatar';
+import { FormsModule } from '@angular/forms';
+        
 
 @Component({
   selector: 'app-product-info',
   standalone: true,
-  imports: [CurrencyPipe,RouterLink],
+  imports: [FormsModule,CurrencyPipe,RouterLink,DialogModule, ButtonModule, InputTextModule, AvatarModule],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })
@@ -58,6 +64,11 @@ export class ProductInfoComponent {
       }
     })
   }
+  visible: boolean = false;
+
+  showDialog() {
+      this.visible = true;
+  }
   addtowishlist(id:number){
       
     if(this.color){
@@ -85,5 +96,6 @@ export class ProductInfoComponent {
       })
     }
   }
+  
 
 }

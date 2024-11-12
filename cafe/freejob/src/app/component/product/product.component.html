@@ -10,7 +10,7 @@
 
                         <p class="fw-semibold ms-2 fs-5">{{product.name}}</p>
                         @if (favourit) {
-                            <div class=" rounded-circle p-1 position-absolute start-0  " (click)="onclick($event,product.id);$event.stopPropagation()"> <i  class="fas fa-heart text-danger"></i></div>
+                            <div  class=" rounded-circle p-1 position-absolute start-0  " (click)="onclick($event,product.id);$event.stopPropagation();areSure.classList.remove('d-none');areSure.classList.add('d-flex')"> <i  class="fas fa-heart text-danger"></i></div>
                         }
                         
                     </div>
@@ -41,6 +41,19 @@
                 </button>
             </div>
            }
+        </div>
+    </div>
+</section>
+
+    <section #areSure
+    class="  position-fixed  d-none     justify-content-center align-items-center top-0  start-0 bottom-0 end-0 bg-opacity-50 bg-secondary">
+    <div   class="nested p-2  m-auto  d-flex flex-column  pt-3 text-center   bg-white">
+        <p class="h6">هل تريد حذف العنصر ؟</p>
+        <p class="p-color">هل أنت متأكد أنك تريد حذف مج حراري مطبوع من قائمة المفضلة لديك؟</p>
+
+        <div class="d-flex pb-4 justify-content-around">
+            <a (click)="remove()" class=" text-decoration-none text- cp almarai-light bg-color- p-2">نعم, قم بالحذف</a>
+            <a (click)="notremove()" class=" text-decoration-none text-  cp almarai-light bg-color- p-2">الغاء الحذف</a>
         </div>
     </div>
 </section>

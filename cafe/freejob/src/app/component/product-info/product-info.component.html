@@ -1,107 +1,251 @@
 <section class=" px-2">
-    <div class="path  py-3 mt-2 px-3">
-       <p class="m-0" class="cp"> <span routerLink="/الصفحة الرئسية" >الصفحة الرئيسية</span>>التسوق </p>
-    </div>
+  <div class="path  py-3 mt-2 px-3">
+    <p class="m-0" class="cp"> <span routerLink="/الصفحة الرئسية">الصفحة الرئيسية</span>>التسوق </p>
+  </div>
 
-    <div class="container-fluid">
-        
-        <div class="row mt-3">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="productImage w-100 text-center">
-                            <img [src]="products.photos[0]" class="w-100" [alt]="products.name">
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mt-3 col-lg-8 px-lg-4 gap-2">
+  <div class="container-fluid">
 
-                    <div class="options mb-2 d-flex justify-content-evenly align-items-center">
-                        <h6 class="quiecly font">مستعجل</h6>
-                        <h6 class="font">عادي</h6>
-                    </div>
-                    <div class="d-flex justify-content-between w-100 fixWidth align-items-center">
-                        <h4>{{products.name}}</h4>
-                        <h6 >{{products.description}}</h6>
-                    </div>
-                    <p class="h5 p-color px-3">{{products.priceAfterSale |currency:"Egy"}}</p>
-                    <div class="d-flex px-3 my-2 justify-content-start gap-3 align-items-center">
-                        <p class="m-0 ">اضافة الي المفضلة</p>
-                       @if(color){
-                        <i class="fa-solid fa-heart cp text-danger fa-lg"   (click)="addtowishlist(products.id)"></i>
-                       }
-                       @else {
-                        <i class="fa-regular fa-heart cp fa-lg"   (click)="addtowishlist(products.id)"></i>
-                       }
-                    </div>
-                    <div class=" d-flex gap-3 px-3 align-items-center   ">
-                        <div>
-                            @if(products.avgRating % 1 !==0){
-                                <i class="fa-solid fa-star-half-stroke text-warning bg"></i>
-                                }
-                            @for (star of [1,2,3,4,5].slice(0,products.avgRating); track
-                            $index) {
-                            <i class="fas fa-star text-warning"></i>
-                            } 
-                            @if(products.avgRating==0){
-                            <i class="fas fa-star text-secondary"></i>
+    <div class="row mt-3">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="productImage w-100 text-center">
+          <img [src]="products.photos[0]" class="w-100" [alt]="products.name">
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mt-3 col-lg-8 px-lg-4 gap-2">
 
-                            }
-                           
-                           
-                        </div>
-                        <div class="hirozentalLine"></div>
-                        <p class="m-0">{{products.avgRating}} تقييمات للعملاء</p>
-                        <a href="" class="text-black">أكتب تقييمك</a>
-                    </div>
-                    <p class="m-0 mt-2">Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.
+        <div class="options mb-2 d-flex justify-content-evenly align-items-center">
+          <h6 class="quiecly font">مستعجل</h6>
+          <h6 class="font">عادي</h6>
+        </div>
+        <div class="d-flex justify-content-between w-100 fixWidth align-items-center">
+          <h4>{{products.name}}</h4>
+          <h6>{{products.description}}</h6>
+        </div>
+        <p class="h5 p-color px-3">{{products.priceAfterSale |currency:"Egy"}}</p>
+        <div class="d-flex px-3 my-2 justify-content-start gap-3 align-items-center">
+          <p class="m-0 ">اضافة الي المفضلة</p>
+          @if(color){
+          <i class="fa-solid fa-heart cp text-danger fa-lg" (click)="addtowishlist(products.id)"></i>
+          }
+          @else {
+          <i class="fa-regular fa-heart cp fa-lg" (click)="addtowishlist(products.id)"></i>
+          }
+        </div>
+        <div class=" d-flex gap-3 px-3 align-items-center   ">
+          <div>
+            @if(products.avgRating % 1 !==0){
+            <i class="fa-solid fa-star-half-stroke text-warning bg"></i>
+            }
+            @for (star of [1,2,3,4,5].slice(0,products.avgRating); track
+            $index) {
+            <i class="fas fa-star text-warning"></i>
+            }
+            @if(products.avgRating==0){
+            <i class="fas fa-star text-secondary"></i>
 
-                    </p>
-                    <div class="d-flex justify-content-start my-3 gap-4 align-items-center">
-                        <p class="m-0">الوان متوفرة</p>
-                        <div class="d-flex justify-content-center align-items-center gap-1 ">
-                            @for (color of products.colors; track $index) {
-                                <span class="dot" [style]="{backgroundColor:color}"></span>
-                            }
+            }
 
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start gap-2 align-items-center">
-                        <!-- <img src="../../../assets/image/Group 131.png" alt="cofe-sizing mug فنجان">
+
+          </div>
+          <div class="hirozentalLine"></div>
+          <p class="m-0">{{products.avgRating}} تقييمات للعملاء</p>
+          <a (click)="main.classList.remove('d-none');main.classList.add('d-flex')" class="text-black cp">أكتب تقييمك</a>
+          <!-- <p-button (onClick)="showDialog()" label="أكتب تقييمك" /> -->
+        </div>
+        <p class="m-0 mt-2">Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact,
+          stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.
+
+        </p>
+        <div class="d-flex justify-content-start my-3 gap-4 align-items-center">
+          <p class="m-0">الوان متوفرة</p>
+          <div class="d-flex justify-content-center align-items-center gap-1 ">
+            @for (color of products.colors; track $index) {
+            <span class="dot" [style]="{backgroundColor:color}"></span>
+            }
+
+          </div>
+        </div>
+        <div class="d-flex justify-content-start gap-2 align-items-center">
+          <!-- <img src="../../../assets/image/Group 131.png" alt="cofe-sizing mug فنجان">
                         <img src="../../../assets/image/Group 131.png" alt="cofe-sizing mug فنجان">
                         <img src="../../../assets/image/Group 131.png" alt="cofe-sizing mug فنجان">
                         <img src="../../../assets/image/Group 131.png" alt="cofe-sizing mug فنجان"> -->
-                        @for (size of products.sizes; track $index) {
-                            <button class=" btn btn-color ">{{size}}</button>
-                        }
-                    </div>
-                </div>          
-        </div> 
+          @for (size of products.sizes; track $index) {
+          <button class=" btn btn-color ">{{size}}</button>
+          }
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <section>
-    <div class="container-fluid">
-        <div class="row  g-2 my-3">
-            <div class="col-12 col-md-6 d-flex justify-content-between align-items-center">
-               <div class="user d-flex justify-content-start gap-3 align-items-center">
-                <img src="./assets/image/person.jfif" class="imgwh" alt="user-img ">
-                <p class="mb-0 usernamesize">{{products.user.userName}}</p>
-               </div>
-               <div class="  d-flex justify-content-center align-items-center gap-1">
-                
-                    <button class="btn btn-danger px-2 py-1"><i class="fas fa-plus"></i></button>
-                    <h4 class="m-0">1</h4>
-                    <button class="btn btn-danger px-2 py-1"><i class="fas fa-minus"></i></button>
-               
-                <button class="btn btn-success px-2 py-1"> اضافة الي العربة</button>
-            </div>
-            </div>
-            <div class="col-12 col-md-6"></div>
-              <div class="col-12 col-md-6  d-flex justify-content-center align-items-center flex-column gap-3 ">
-                <button class="w-100 buton position-relative ">  اختر التاريخ  <img src="../../../assets/image/historyicon.png" class="position-absolute cordanate" alt=""></button>
-                <button class="w-100 buton position-relative">حمل ملف pdf لطباعته <img src="../../../assets/image/downloadicon.png" class="position-absolute cordanate" alt=""></button>
-                <button class="w-100 buton position-relative">حمل الصورة <img src="../../../assets/image/down.png" class="position-absolute cordanate" alt=""></button>
-              </div>
-              <div class="col-12 col-md-6  mt-3">
-                <textarea name="" rows="5" placeholder="اكتب ملاحظاتك عن المنتج هنا ...." class="w-100 border-3 me-auto area p-2" id=""></textarea>
-              </div>
+  <div class="container-fluid">
+    <div class="row  g-2 my-3">
+      <div class="col-12 col-md-6 d-flex justify-content-between align-items-center">
+        <div class="user d-flex justify-content-start gap-3 align-items-center">
+          <img src="./assets/image/person.jfif" class="imgwh" alt="user-img ">
+          <p class="mb-0 usernamesize">{{products.user.userName}}</p>
         </div>
+        <div class="  d-flex justify-content-center align-items-center gap-1">
+
+          <button class="btn btn-danger px-2 py-1"><i class="fas fa-plus"></i></button>
+          <h4 class="m-0">1</h4>
+          <button class="btn btn-danger px-2 py-1"><i class="fas fa-minus"></i></button>
+
+          <button class="btn btn-success px-2 py-1"> اضافة الي العربة</button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6"></div>
+      <div class="col-12 col-md-6  d-flex justify-content-center align-items-center flex-column gap-3 ">
+        <button class="w-100 buton position-relative "> اختر التاريخ <img src="../../../assets/image/historyicon.png"
+            class="position-absolute cordanate" alt=""></button>
+        <button class="w-100 buton position-relative">حمل ملف pdf لطباعته <img
+            src="../../../assets/image/downloadicon.png" class="position-absolute cordanate" alt=""></button>
+        <button class="w-100 buton position-relative">حمل الصورة <img src="../../../assets/image/down.png"
+            class="position-absolute cordanate" alt=""></button>
+      </div>
+      <div class="col-12 col-md-6  mt-3">
+        <textarea name="" rows="5" placeholder="اكتب ملاحظاتك عن المنتج هنا ...."
+          class="w-100 border-3 me-auto area p-2" id=""></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+<section #main class="rating position-fixed d-none justify-content-center align-items-center top-0 start-0 bottom-0 end-0 bg-opacity-50 bg-secondary ">
+
+  <div class="nested w-50 m-auto pt-3  px-3 bg-white">
+    <div class="d-flex justify-content-between flex-row-reverse align-items-center ">
+      <span><i class="fa fa-close cp" (click)="main.classList.add('d-none')"></i></span>
+      <div class="d-flex align-items-center">
+        <img src="../../../assets/image/image 3.png" width="40px" height="40px" alt="">
+        <span class="pe-2">
+          <p class="mb-0">تقييمي</p>
+          <h3>مج حراري مطبوع</h3>
+        </span>
+      </div>
+
+    </div>
+    <ul class="list-unstyled d-flex gap-2 mt-3">
+      <li class="p-2 rounded-2 bg-color">
+        <i class="fa fa-star text-white "></i>
+      </li>
+      <li class="p-2 rounded-2 bg-color">
+        <i class="fa fa-star text-white "></i>
+      </li>
+      <li class="p-2 rounded-2 bg-color">
+        <i class="fa fa-star text-white "></i>
+      </li>
+      <li class="p-2 rounded-2 bg-color">
+        <i class="fa fa-star text-white "></i>
+      </li>
+      <li class="p-2 rounded-2 bg-color">
+        <i class="fa fa-star text-white "></i>
+      </li>
+    </ul>
+    <form ngSubmit="">
+      <div class="flex flex-column gap-3 mb-3">
+        <label for="username" class="font-semibold "> اكتب تقييمك </label>
+        <textarea  id="username" class="flex-auto border-color w-100"></textarea> 
+      </div>
+      <div class="flex flex-column gap-3 mb-3">
+        <label for="username" class="font-semibold "> الاسم </label>
+        <input  id="username" class="flex-auto  p-2  border-1 border-color  w-100"  />
+      </div>
+      <div class="flex flex-column gap-3 mb-5">
+        <label for="email" class="font-semibold ">البريد الالكتروني</label>
+        <input  id="email" class="flex-auto border-color border-1 p-2  w-100"  />
+      </div>
+      <!-- <div class=" position-relative  bg-danger ">
+        <input type="checkbox"  id="checkbox" class="position-absolute start-0 w-100"  />
+        <label for="checkbox" class="font-semibold text-end"> أوافق على الشروط والأحكام</label>
+      </div> -->
+      <div class=" my-3">
+        <input type="checkbox">
+        أوافق على الشروط والأحكام
+      </div>
+      <button (click)="thanks.classList.remove('d-none');thanks.classList.add('d-flex')"  class="bg-color btn w-25 m-auto mb-5">تقييم</button>
+      
+    </form>
+  </div>
+
+</section>
+<section #thanks class="thanks position-fixed d-none justify-content-center align-items-center top-0  start-0 bottom-0 end-0 bg-opacity-50 bg-secondary">
+  <div class="nested w-25 m-auto pt-3 text-center py-4   bg-white">
+    <p class="h6">شكرا علي تقييمك !</p>
+    <p>تم مشاركة تقييمك بنجاح!</p>
+    <ul class="list-unstyled justify-content-center pe-0 d-flex ">
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+      <li><i class="fa fa-star text-color"></i></li>
+    </ul>
+    <a routerLink="/الصفحة الرئسية" class="btn bg-color p-2" >الرجوع الي الصفحة االرئيسية</a>
     </div>
 </section>
+
+
+<!-- <div class="w-100">
+    <div class=" flex bg-danger justify-content-center">
+        <p-dialog 
+            header="Header" 
+            [(visible)]="visible" 
+            [modal]="true" 
+            [style]="{ width: '25rem' }">
+            <ng-template pTemplate="header">
+                <div class="inline-flex align-items-center justify-content-center gap-2">
+                  <p-avatar
+                    image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                    shape="circle"
+                  />
+                  <span class="font-bold white-space-nowrap"> تقييمي </span>
+                </div>
+              </ng-template>
+              <div>
+                <h2 class="p-text-secondary mt-0 block mb-5">مج حراري مطبوع.</h2>
+              <ul class="list-unstyled d-flex">
+                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
+                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
+                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
+                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
+              </ul>
+          
+              <form>
+                <div class="flex flex-column gap-3 mb-3">
+                  <label for="username" class="font-semibold w-6rem"> اكتب تقييمك </label>
+                  <textarea
+                    pInputText
+                    id="username"
+                    class="flex-auto"
+                    autocomplete="off"
+                  ></textarea>
+                </div>
+                <div class="flex flex-column gap-3 mb-3">
+                  <label for="username" class="font-semibold w-6rem"> الاسم </label>
+                  <input pInputText id="username" class="flex-auto" autocomplete="off" />
+                </div>
+                <div class="flex flex-column gap-3 mb-5">
+                  <label for="email" class="font-semibold w-6rem"
+                    >البريد الالكتروني</label
+                  >
+                  <input pInputText id="email" class="flex-auto" autocomplete="off" />
+                </div>
+              </form>
+              </div>
+              <ng-template pTemplate="footer">
+                <p-button
+                  label="Cancel"
+                  [text]="true"
+                  severity="secondary"
+                  (onClick)="visible = false"
+                />
+                <p-button
+                  label="Save"
+                  [outlined]="true"
+                  severity="secondary"
+                  (onClick)="visible = false"
+                />
+              </ng-template>
+        </p-dialog>
+    </div>
+</div> -->
