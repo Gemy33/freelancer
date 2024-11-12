@@ -11,7 +11,7 @@ import { ProductComponent } from "../product/product.component";
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [RouterLink, BgFixedComponent, CurrencyPipe, ProductComponent],
+  imports: [ BgFixedComponent, ProductComponent],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })
