@@ -1,0 +1,75 @@
+<div class="m-auto fixedWidth mt-3 mt-sm-0">
+    <p class="h4 ">الصفحه الشخصية</p>
+    <form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
+        <label for="fname" class="my-3 ">اسم الاول</label>
+        <input type="text" formControlName="fname" id="fname" class="form-control" placeholder="اسم الاول" />
+        @if(formgroup.get("fname")?.errors){
+            @if(formgroup.get("fname")?.getError("required")&&formgroup.get("fname")?.touched){
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال الاسم</p>
+            }
+            @else if (formgroup.get("fname")?.getError("minlength")&&formgroup.get("fname")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الادني 3 حروق</p>               
+            }
+            @else if (formgroup.get("fname")?.getError("maxlength")&&formgroup.get("fname")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الاقصي 10 حروف</p>
+            }
+        }
+        <label for="lname" class="my-3 ">اسم العائله</label>
+        <input type="text" formControlName="lname" id="lname" class="form-control"/>
+        @if(formgroup.get("lname")?.errors){
+            @if(formgroup.get("lname")?.getError("required")&&formgroup.get("lname")?.touched){
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال اسم العائلة</p>
+            }
+            @else if (formgroup.get("lname")?.getError("minlength")&&formgroup.get("lname")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الادني 3 حروق</p>               
+            }
+            @else if (formgroup.get("lname")?.getError("maxlength")&&formgroup.get("lname")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الاقصي 10 حروف</p>
+            }
+        }
+        <label for="email" class="my-3 ">البريد الالكتروني</label>
+        <input type="email" formControlName="emali" id="email" class="form-control"/>
+        @if(formgroup.get("emali")?.errors){
+            @if(formgroup.get("emali")?.getError("required")&&formgroup.get("emali")?.touched){
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال البريد الالكتروني</p>
+            }
+            @else if(formgroup.get("emali")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال البريد الالكتروني بشكل صحيح</p>               
+            }
+            
+        }
+        <label for="phone" class="my-3 ">رقم الهاتف</label>
+        <input type="text" formControlName="phone" id="phone" class="form-control"/>
+        @if(formgroup.get("phone")?.errors){
+            @if(formgroup.get("phone")?.getError("required")&&formgroup.get("phone")?.touched){
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال رقم الهاتف</p>
+            }
+            @else if (formgroup.get("phone")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال رقم مصري</p>               
+            }
+          
+        }
+        <label for="passwd" class="my-3 ">كلمه السر الحاليه</label>
+        <input type="text" formControlName="password" id="passwd" class="form-control"/>
+        @if(formgroup.get("password")?.errors){
+            @if(formgroup.get("password")?.getError("required")&&formgroup.get("password")?.touched){
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">يجب أدخال  كلمه السر</p>
+            }
+            @else if (formgroup.get("password")?.getError("minlength")&&formgroup.get("password")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الدني 5 خانات</p>               
+            }
+            @else if (formgroup.get("password")?.getError("maxlength")&&formgroup.get("password")?.touched) {
+                <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الاقصي 25 خانه</p>
+            }
+        }
+        <div class="d-flex justify-content-between mt-4" >
+        <button type="submit" class="btn-color mt-2 almarai-light border-0 rounded-2 width py-2">حفظ
+            @if(isloading()){
+                <i class="fa-solid fa-spinner fa-spin"></i> 
+            }
+        </button>
+        <button type="reset" class=" mt-2 almarai-light border-0 rounded-2 width py-2">الغاء</button>
+
+        </div>
+    </form>
+</div>

@@ -16,6 +16,9 @@ import { TrackingComponent } from './component/tracking/tracking.component';
 import { TrackingInfoComponent } from './component/tracking-info/tracking-info.component';
 import { UserSettingComponent } from './component/reuseable-components/user-setting/user-setting.component';
 import { AcountOverviewComponent } from './component/acount-overview/acount-overview.component';
+import { SettingComponent } from './component/setting/setting.component';
+import { UserPasswordComponent } from './component/user-password/user-password.component';
+import { PersonalPageComponent } from './component/personal-page/personal-page.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -38,7 +41,14 @@ export const routes: Routes = [
     {path:"تعقب",component:TrackingComponent,title:"تعقب"},
     {path:"حاله التعقب",component:TrackingInfoComponent,title:"تعقب"},
     {path:"الاعدادات",component:UserSettingComponent,title:"الاعدادات"},
-    {path:"عام",component:AcountOverviewComponent,title:"الاعدادات"},
+   
     //must make not found component;
 ]},
+{
+    path:"",component:SettingComponent,children:[
+        {path:"عام",component:AcountOverviewComponent,title:"الاعدادات"},       
+        {path:"كلمه السر",component:UserPasswordComponent,title:"password"},       
+        {path:"الصفحه الشخصيه",component:PersonalPageComponent,title:"الاعدادات"},       
+    ]
+}
 ]
