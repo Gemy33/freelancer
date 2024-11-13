@@ -1,25 +1,22 @@
-import { Component, inject, viewChild, ViewChild } from '@angular/core';
+import { Component, inject, signal, viewChild, ViewChild } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IproductInfo } from '../../interfaces/products';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { FavouriteService } from '../../services/favourite.service';
-import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { AvatarModule } from 'primeng/avatar';
 import { FormsModule } from '@angular/forms';
         
 
 @Component({
   selector: 'app-product-info',
   standalone: true,
-  imports: [FormsModule,CurrencyPipe,RouterLink,DialogModule, ButtonModule, InputTextModule, AvatarModule],
+  imports: [FormsModule,CurrencyPipe,RouterLink,NgClass],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })
 export class ProductInfoComponent {
   
+  orderspeed=signal<boolean>(false);
   
   private readonly _ActivatedRoute=inject(ActivatedRoute)
   private readonly _ProductsService=inject(ProductsService)
@@ -94,6 +91,15 @@ export class ProductInfoComponent {
           
         }
       })
+    }
+  }
+  orderType(){
+    if(this.orderspeed()==true){
+
+      this.orderspeed.set(false);
+    }
+    else{
+      this.orderspeed.set(true)
     }
   }
   

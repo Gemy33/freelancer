@@ -1,6 +1,6 @@
 <section class=" px-2">
-  <div class="path  py-3 mt-2 px-3">
-    <p class="m-0" class="cp"> <span routerLink="/الصفحة الرئسية">الصفحة الرئيسية</span>>التسوق </p>
+  <div class="path  px-4 pt-2 pb-1 mt-2 ">
+    <p class="m-0" class="cp d-flex " routerLink="/التسوق"> <span routerLink="/الصفحة الرئسية" >الصفحة الرئيسية</span>>التسوق | {{products.name}}</p>
   </div>
 
   <div class="container-fluid">
@@ -14,8 +14,8 @@
       <div class="col-12 col-md-6 mt-3 col-lg-8 px-lg-4 gap-2">
 
         <div class="options mb-2 d-flex justify-content-evenly align-items-center">
-          <h6 class="quiecly font">مستعجل</h6>
-          <h6 class="font">عادي</h6>
+          <h6 class=" font" (click)="orderType()" [ngClass]="{'quiecly':orderspeed()}">مستعجل</h6>
+          <h6 class="font" (click)="orderType()" [ngClass]="{'quiecly':!orderspeed()}">عادي</h6>
         </div>
         <div class="d-flex justify-content-between w-100 fixWidth align-items-center">
           <h4>{{products.name}}</h4>
@@ -90,11 +90,11 @@
         </div>
         <div class="  d-flex justify-content-center align-items-center gap-1">
 
-          <button class="btn btn-danger px-2 py-1"><i class="fas fa-plus"></i></button>
+          <button class="bot rounded-2 px-2 py-1"><i class="fas fa-plus"></i></button>
           <h4 class="m-0">1</h4>
-          <button class="btn btn-danger px-2 py-1"><i class="fas fa-minus"></i></button>
+          <button class="bot rounded-2 px-2 py-1"><i class="fas fa-minus"></i></button>
 
-          <button class="btn btn-success px-2 py-1"> اضافة الي العربة</button>
+          <button class="bot rounded-2 px-2 py-1"> اضافة الي العربة</button>
         </div>
       </div>
       <div class="col-12 col-md-6"></div>

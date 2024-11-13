@@ -70,6 +70,10 @@ width: 100%;
     border-radius: 3px;
     padding: 10px 0;
 }
+.bot{
+    border:1px solid var(--main-color);
+    background-color: white;
+}
 @media (min-width:700px){
     .usernamesize{
         font-size: 30px;
