@@ -16,7 +16,7 @@ token='';
       if (typeof localStorage !== 'undefined')
       {
        this.token= localStorage.getItem('userToken') !;
-      //  console.log(this.token);
+       console.log(this.token);
        
       }
      

@@ -19,6 +19,8 @@ export class WishlistComponent implements OnInit {
   allFavProduct:Products[]=[]
   private _FavouriteService=inject(FavouriteService)
   ngOnInit(): void {
+    // console.log(this._FavouriteService.token);
+    
     this._FavouriteService.getAllFav().subscribe({
       next:(res)=>{
         console.log(res);
