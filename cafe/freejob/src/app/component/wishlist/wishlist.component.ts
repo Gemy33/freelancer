@@ -6,6 +6,7 @@ import { Products } from '../../interfaces/products';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProductComponent } from "../product/product.component";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { ProductComponent } from "../product/product.component";
 export class WishlistComponent implements OnInit {
   allFavProduct:Products[]=[]
   private _FavouriteService=inject(FavouriteService)
+  private _ToastrService=inject(ToastrService)
   ngOnInit(): void {
     // console.log(this._FavouriteService.token);
     
@@ -30,6 +32,7 @@ export class WishlistComponent implements OnInit {
         
       },
       error:(err)=>{
+
         console.log(err);
         
       }

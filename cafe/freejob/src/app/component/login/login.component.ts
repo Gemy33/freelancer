@@ -9,6 +9,7 @@ import { FixedInfoComponent } from '../reuseable-components/fixed-info/fixed-inf
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthheaderComponent } from '../reuseable-components/authheader/authheader.component';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   private readonly _FormBuilder = inject(FormBuilder);
   private readonly _AuthService = inject(AuthService);
+  private readonly _ToastrService= inject(ToastrService);
   private readonly _Router = inject(Router);
   loginForm: FormGroup = this._FormBuilder.group({
     emailOrUserName: [null, [Validators.required, Validators.email]], //must get validation from back end dont forget that
@@ -61,6 +63,8 @@ export class LoginComponent {
           this._Router.navigate(['/الصفحة الرئسية']);
         },
         error: (err) => {
+          //error
+          this._ToastrService.error(err.error.message)
           console.log(err);
           this.iserror.set(true);
           this.error.set(err.error.message);

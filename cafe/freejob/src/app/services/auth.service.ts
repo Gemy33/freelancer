@@ -8,12 +8,16 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private _HttpClient: HttpClient) {}
+  constructor(private _HttpClient: HttpClient) {
+  
+  }
 
   
   
   uer_info_form_token: BehaviorSubject<any> = new BehaviorSubject(null);
-  private isNotlogin: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  // private isNotlogin: BehaviorSubject<boolean> = new BehaviorSubject(true);
+   isNotlogin = signal<boolean>(true);
+ 
 
   register(data: {}): Observable<any> {
     return this._HttpClient.post(`${baseurl}/api/Accountt/register`, data);
@@ -23,11 +27,11 @@ export class AuthService {
     
   }
   updataIsNotlogin(desction: boolean) {
-    this.isNotlogin.next(desction);
+    this.isNotlogin.set(desction);
   }
   getStataus():boolean
   {
-   return this.isNotlogin.getValue();
+   return this.isNotlogin();
   }
 
   decode(): void {

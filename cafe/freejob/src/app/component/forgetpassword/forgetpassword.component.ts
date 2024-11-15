@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import {  AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PasswordService } from '../../services/password.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forgetpassword',
@@ -14,6 +15,7 @@ export class ForgetpasswordComponent {
  
 
   private readonly _PasswordService=inject(PasswordService)
+  private readonly _ToastrService=inject(ToastrService)
   private readonly _Router=inject(Router)
   
   page=signal<number>(1);
@@ -62,6 +64,8 @@ resetpassword:FormGroup=new FormGroup({
           
         },
         error:(err)=>{
+          this._ToastrService.error(err.error.message)
+          
           this.emailmessage.set(err.error.message);
           this.error.set(true)
           this.iserror.set(true);
@@ -89,6 +93,7 @@ resetpassword:FormGroup=new FormGroup({
           
         },
         error:(err)=>{
+          this._ToastrService.error(err.error.message)
           this.emailmessage.set(err.error.message);
           this.error.set(true)
           this.iserror.set(true);
@@ -123,6 +128,7 @@ resetpassword:FormGroup=new FormGroup({
 
       },
       error:(err)=>{
+        this._ToastrService.error(err.error.message)
         this.iserror.set(true);
         this.emailmessage.set(err.error.message)
          this.spinner.set(false)

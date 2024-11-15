@@ -20,6 +20,9 @@
     <p class="p-color text-center">اكتشف الان اقسامنا واختر من منتجاتنا الرائعة باسعار خيالية</p>
     <app-slider></app-slider>
 </div>
+<div class="my-4">
+    <app-product [allProduct]="spceproducts()" [favourit]="false" ></app-product>
+</div>
 <section>
     <h3 class="text-center my-5">منتجاتنا</h3>
     <app-product [allProduct]="all_products" [favourit]="false" />
