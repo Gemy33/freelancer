@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { Component, inject, signal, viewChild, ViewChild } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -63,9 +64,9 @@ export class ProductInfoComponent {
   }
   visible: boolean = false;
 
-  // showDialog() {
-  //     this.visible = true;
-  // }
+  showDialog() {
+      this.visible = true;
+  }
   addtowishlist(id:number){
       
     if(this.color){
@@ -101,6 +102,28 @@ export class ProductInfoComponent {
     else{
       this.orderspeed.set(true)
     }
+  }
+  private CartService=inject(CartService)
+  cart_info=signal<{}>({});
+  addToCart(id:number)
+  {
+    this.cart_info.set({
+      ProductId:id,
+      Type:"مستعجل",
+      Quantity:1,
+    })
+    this.CartService.addToCart(this.cart_info()).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },
+      error:(err)=>{
+        console.log(err);
+        
+      }
+    })
+
+
   }
   
 

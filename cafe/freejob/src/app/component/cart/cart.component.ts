@@ -12,5 +12,6 @@ import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-inf
 })
 export class CartComponent  {
 
+  
 
 }

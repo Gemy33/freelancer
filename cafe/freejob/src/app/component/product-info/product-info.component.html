@@ -23,7 +23,7 @@
         </div>
         <p class="h5 p-color px-3">{{products.priceAfterSale |currency:"Egy"}}</p>
         <div class="d-flex px-3 my-2 justify-content-start gap-3 align-items-center">
-          <p class="m-0 ">اضافة الي المفضلة</p>
+          <p class="m-0 " >اضافة الي المفضلة</p>
 
           @if(color){
           <i class="fa-solid fa-heart cp text-danger fa-lg" (click)="addtowishlist(products.id)"></i>
@@ -94,7 +94,7 @@
           <h4 class="m-0">1</h4>
           <button class="bot rounded-2 px-2 py-1"><i class="fas fa-minus"></i></button>
 
-          <button class="bot rounded-2 px-2 py-1"> اضافة الي العربة</button>
+          <button class="bot rounded-2 px-2 py-1" (click)="addToCart(products.id)"> اضافة الي العربة</button>
         </div>
       </div>
       <div class="col-12 col-md-6"></div>
