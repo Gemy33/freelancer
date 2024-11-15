@@ -4,6 +4,7 @@ import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-inf
 import { AuthheaderComponent } from "../reuseable-components/authheader/authheader.component";
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   private readonly _AuthService=inject(AuthService)
+  private readonly _ToastrService=inject(ToastrService)
   private readonly _Router=inject(Router)
   msg_error="";
   shown_error=false;
@@ -58,7 +60,9 @@ export class RegisterComponent {
         
 
       },2000)},
-      error:(err)=>{console.log(err);
+      error:(err)=>{
+        this._ToastrService.error(err.error.message)
+        console.log(err);
         this.msg_error=err.error.message;
         this.shown_error=true;
 

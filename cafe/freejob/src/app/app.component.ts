@@ -9,6 +9,7 @@ import { ProductsliderComponent } from "./component/reuseable-components/product
 import { SliderComponent } from "./component/reuseable-components/slider/slider.component";
 import { NotfoundComponent } from "./component/notfound/notfound.component";
 import { ProductComponent } from "./component/product/product.component";
+import { NgxSpinnerComponent } from 'ngx-spinner';
 
 
 
@@ -18,7 +19,7 @@ import { ProductComponent } from "./component/product/product.component";
   standalone: true,
   
 
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoginComponent, ProductInfoComponent, ProductsliderComponent, SliderComponent, NotfoundComponent, ProductComponent],
+  imports: [NgxSpinnerComponent,RouterOutlet, NavbarComponent, FooterComponent, LoginComponent, ProductInfoComponent, ProductsliderComponent, SliderComponent, NotfoundComponent, ProductComponent],
 
 
 

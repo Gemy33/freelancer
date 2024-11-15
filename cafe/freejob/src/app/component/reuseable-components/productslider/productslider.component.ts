@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { SliderComponent } from "../slider/slider.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-productslider',
   standalone: true,
-  imports: [CarouselModule, SliderComponent],
+  imports: [CarouselModule ,RouterLink ],
   templateUrl: './productslider.component.html',
   styleUrl: './productslider.component.scss'
 })

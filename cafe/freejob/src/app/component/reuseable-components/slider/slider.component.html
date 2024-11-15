@@ -25,7 +25,7 @@
 
    @for (cat of categories; track cat.id) {
       <ng-template carouselSlide >
-        <img [src]="cat.photoURL" [routerLink]="['/التسوق',cat.id]" (click)="sendData(cat.id)" height="400px" [alt]="cat.name">
+        <img [src]="cat.photoURL" (click)="sendData(cat.id)" height="400px" [alt]="cat.name">
         <p class="m-0 text-center h6 text-black">
           {{cat.name}}
         </p>
@@ -34,3 +34,6 @@
 
   </owl-carousel-o>
 </div>
+
+
+

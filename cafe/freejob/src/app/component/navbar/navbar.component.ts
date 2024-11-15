@@ -15,7 +15,17 @@ import { NgClass } from '@angular/common';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+private readonly _AuthService = inject(AuthService);
 
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    if(localStorage.getItem("userToken")){
+      this._AuthService.isNotlogin.set(false);
+
+    }
+  }
 
 
 // private readonly _AuthService=inject(AuthService)
@@ -43,7 +53,6 @@ export class NavbarComponent {
 //   }
 
   
-private readonly _AuthService = inject(AuthService);
 // islogin:boolean=true;
 
 get islogin(){
