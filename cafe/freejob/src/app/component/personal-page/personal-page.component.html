@@ -49,7 +49,7 @@
             }
           
         }
-        <label for="passwd" class="my-3 ">كلمه السر الحاليه</label>
+        <!-- <label for="passwd" class="my-3 ">كلمه السر الحاليه</label>
         <input type="text" formControlName="password" id="passwd" class="form-control"/>
         @if(formgroup.get("password")?.errors){
             @if(formgroup.get("password")?.getError("required")&&formgroup.get("password")?.touched){
@@ -61,9 +61,9 @@
             @else if (formgroup.get("password")?.getError("maxlength")&&formgroup.get("password")?.touched) {
                 <p class="m-0 rounded-2 mt-2 py-1 px-2 bg-danger-subtle">الحد الاقصي 25 خانه</p>
             }
-        }
+        } -->
         <div class="d-flex justify-content-between mt-4" >
-        <button type="submit" class="btn-color mt-2 almarai-light border-0 rounded-2 width py-2">حفظ
+        <button type="submit"  class="btn-color mt-2 almarai-light border-0 rounded-2 width py-2">حفظ
             @if(isloading()){
                 <i class="fa-solid fa-spinner fa-spin"></i> 
             }
@@ -73,3 +73,5 @@
         </div>
     </form>
 </div>
+
+

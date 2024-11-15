@@ -3,8 +3,15 @@
 <div class="m-auto fixedWidth">
     <h4 class=" mb-4">نظرة عامة على الحساب</h4>
     <h6 class="almarai-light mb-3">الحساب</h6>
-    <h6 class="almarai-light">user name</h6>
-    <h6 class="almarai-light mb-4">Nadoa232gmali.com</h6>
+    <h4 class="almarai-light fs-2 position-relative"><img [src]="userInfo.image" class="imgsty" [alt]="userInfo.userName">
+        
+        {{userInfo.userName}} 
+        <!--         
+                    <input type="file" formControlName="url" id="files" class="d-none"/>
+                <label for="files"><i class="fa-regular fa-image fs-6 position-absolute bottom-0 end-0"></i></label> -->
+    </h4>
+    <h6 class="almarai-light mb-4">{{userInfo.email}} </h6>
+    <h6 class="almarai-light mb-4">{{userInfo.phoneNumber}}</h6>
     <!-- <div class="d-flex bg-danger justify-content-between"> -->
         <button class="btn-color almarai-light border-0 rounded-2 width py-2 " routerLink="/الصفحه الشخصيه">تعديل التفاصيل</button>
         <span class="h6 me-3 pb-2  almarai-light cp" routerLink="/كلمه السر">تغيير كلمه السر</span>

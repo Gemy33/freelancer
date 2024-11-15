@@ -42,6 +42,7 @@ export class LoginComponent {
   OnSubmit() {
     if (this.loginForm.valid) {
       this.onsendrequest.set(true);
+      localStorage.setItem("email",this.loginForm.get("emailOrUserName")?.value);
 
       this._AuthService.login(this.loginForm.value).subscribe({
         next: (res) => {
@@ -51,6 +52,7 @@ export class LoginComponent {
             this._AuthService.updataIsNotlogin(false);
           }
           this._AuthService.decode();
+          
           
           this.onsendrequest.set(false);
           this.spinner.set(false);
