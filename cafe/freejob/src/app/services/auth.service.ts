@@ -9,6 +9,8 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   constructor(private _HttpClient: HttpClient) {}
+
+  
   
   uer_info_form_token: BehaviorSubject<any> = new BehaviorSubject(null);
   private isNotlogin: BehaviorSubject<boolean> = new BehaviorSubject(true);
@@ -18,6 +20,7 @@ export class AuthService {
   }
   login(data: {}): Observable<any> {
     return this._HttpClient.post(`${baseurl}/api/Accountt/login`, data);
+    
   }
   updataIsNotlogin(desction: boolean) {
     this.isNotlogin.next(desction);
@@ -37,9 +40,11 @@ export class AuthService {
 
   // ------------------------------log-out-------------
   logout() {
+    //there is many item in localstorage but we remove token becouse this response on login===gaurd check usertoken
     if (localStorage.getItem('userToken') !== null) {
       localStorage.removeItem('userToken');
       this.uer_info_form_token.next(null);
     }
+   
   }
 }

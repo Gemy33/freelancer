@@ -20,5 +20,10 @@ export class PasswordService {
    resetPassword(data:{}):Observable<any>{
     return this._HttpClient.post(`${baseurl}/api/Accountt/ResetPassword`,data)
    }
+   changePassword(data:{}):Observable<any>{
+    return this._HttpClient.post(`${baseurl}/api/Accountt/ChangePassword`,data,{
+      headers:{"Authorization":"Bearer "+localStorage.getItem("userToken")}
+    })
+   }
    
 }
