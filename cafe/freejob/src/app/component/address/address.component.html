@@ -1,1 +1,121 @@
-<p>address works!</p>
+<form [formGroup]="addressGroup" (ngSubmit)="onsubmit()" class="m-auto w-50">
+  <p class="h4 pb-2">العنوان</p>
+  <p class="w-75 py-1">
+    <label for="fname" class="py-1 h6"> الاسم الاول </label>
+    <input
+      type="text"
+      formControlName="fname"
+      class="form-control p-2"
+      id="fname"
+    />
+    @if (addressGroup.get('fname')?.errors &&
+    (addressGroup.get('fname')?.touched || addressGroup.get('fname')?.dirty)) {
+    <div class="alert alert-danger p-2 mt-1 pb-0 text-center">
+      @if (addressGroup.get("fname")?.getError("required")) {
+      <p>يجب ادخال اسم المستخدم</p>
+      } @if (addressGroup.get("fname")?.getError("minlength")) {
+      <p>يجب ان يكون علي الاقل 5 احرف</p>
+      }
+    </div>
+    }
+  </p>
+ 
+  <p class="w-75 py-1">
+    <label for="famname" class="py-1 h6"> اسم العائلة </label>
+    <input
+      type="text"
+      formControlName="Lname"
+      class="form-control p-2"
+      id="famname"
+    />
+    @if (addressGroup.get('Lname')?.errors &&
+    (addressGroup.get('Lname')?.touched || addressGroup.get('Lname')?.dirty)) {
+    <div class="alert alert-danger p-2 mt-1 pb-0 text-center">
+      @if (addressGroup.get("Lname")?.getError("required")) {
+      <p>يجب ادخال اسم المستخدم</p>
+      } @if (addressGroup.get("Lname")?.getError("minlength")) {
+        <p>يجب ان يكون علي الاقل 5 احرف</p>
+        }
+    </div>
+    }
+  </p>
+  <p class="w-75 py-1">
+    <label for="country" class="py-1 h6">الدولة</label>
+    <input
+      type="text"
+      formControlName="country"
+      name="country"
+      class="form-control"
+      id="country"
+    />
+    @if (addressGroup.get('country')?.errors &&
+    (addressGroup.get('country')?.touched || addressGroup.get('country')?.dirty)) {
+    <div class="alert alert-danger p-2 mt-1 pb-0 text-center">
+      @if (addressGroup.get("country")?.getError("required")) {
+      <p>يجب ادخال اسم الدوله</p>
+      } 
+    </div>
+    }
+  </p>
+  <p class="w-75 py-1">
+    <label for="city" class="py-1 h6">المدينة</label>
+    <input
+      type="text"
+      formControlName="city"
+      class="form-control"
+      name="city"
+      id="city"
+    />
+    @if (addressGroup.get('city')?.errors &&
+    (addressGroup.get('city')?.touched || addressGroup.get('city')?.dirty)) {
+    <div class="alert alert-danger p-2 mt-1 pb-0 text-center">
+      @if (addressGroup.get("city")?.getError("required")) {
+      <p>يجب ادخال اسم المديمه</p>
+      } 
+    </div>
+    }
+  </p>
+  <p class="w-75 py-1">
+    <label for="ccity" class="py-1 h6">المركز</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="region"
+      name="ccity"
+      id="ccity"
+    />
+    @if (addressGroup.get('region')?.errors &&
+    (addressGroup.get('region')?.touched || addressGroup.get('region')?.dirty)) {
+    <div class="alert alert-danger p-2 mt-1 pb-0 text-center">
+      @if (addressGroup.get("region")?.getError("required")) {
+      <p>يجب ادخال اسم المنطقه</p>
+      } 
+    </div>
+    }
+  </p>
+
+  <p class="w-75 py-1">
+    <label for="fnumber" class="py-1 h6"> رقم الهاتف</label>
+    <input
+      type="text"
+      formControlName="phoneNumber"
+      class="form-control p-2"
+      id="fnumber"
+    />
+    @if (addressGroup.get('phoneNumber')?.errors &&
+    (addressGroup.get('phoneNumber')?.touched || addressGroup.get('phoneNumber')?.dirty)) {
+    <div class="alert alert-danger p-2 mt-1 pb-0 text-center">
+      @if (addressGroup.get("phoneNumber")?.getError("required")) {
+      <p>يجب ادخال رقم الهاتف</p>
+      } 
+    </div>
+    }
+  </p>
+
+  <div class="d-flex gap-4">
+    <button [disabled]="addressGroup.invalid" class="py-2 px-5 border-0    rounded-2 btn-color" >حفظ@if (isClicked()) {<i class="fa-solid fa-spinner  fa-spin"></i>}</button>
+    <button class="py-2 px-5 border rounded-2 bg-white border-main">
+      الغاء
+    </button>
+  </div>
+</form>

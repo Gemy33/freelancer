@@ -19,6 +19,9 @@ import { AcountOverviewComponent } from './component/acount-overview/acount-over
 import { SettingComponent } from './component/setting/setting.component';
 import { UserPasswordComponent } from './component/user-password/user-password.component';
 import { PersonalPageComponent } from './component/personal-page/personal-page.component';
+import { OrderingComponent } from './component/ordering/ordering.component';
+import { AddressComponent } from './component/address/address.component';
+import { PayingInfoComponent } from './component/paying-info/paying-info.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -49,6 +52,9 @@ export const routes: Routes = [
         {path:"عام",component:AcountOverviewComponent,title:"الاعدادات"},       
         {path:"كلمه السر",component:UserPasswordComponent,title:"password"},       
         {path:"الصفحه الشخصيه",component:PersonalPageComponent,title:"الاعدادات"},       
+        {path:"الطلبات",component:OrderingComponent,title:"الاعدادات"},       
+        {path:"العنوان",component:AddressComponent,title:"الاعدادات"},       
+        {path:"تفاصيل الدفع",component:PayingInfoComponent,title:"الاعدادات"},       
     ]
 }
 ]

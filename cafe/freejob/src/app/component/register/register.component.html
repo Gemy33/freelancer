@@ -1,86 +1,138 @@
-<section class="width mt-3 ">
+<section class="width mt-3">
+  <app-authheader></app-authheader>
 
-    <app-authheader></app-authheader>
-
-<form (ngSubmit)="regiser_user()" [formGroup]="register" dir="rtl" class="w-100 mb-5 m-auto">
+  <form
+    (ngSubmit)="regiser_user()"
+    [formGroup]="register"
+    dir="rtl"
+    class="w-100 mb-5 m-auto"
+  >
     @if (shown_error) {
-        <p class="alert alert-danger ">{{msg_error}}</p>
+    <p class="alert alert-danger">{{ msg_error }}</p>
     }
-   
-    <div class="group  ">
-        <p><input type="text" formControlName="userName" class="input-name" placeholder="اسم المستخدم" ></p>
-        @if (register.get('userName')?.errors && (register.get('userName')?.touched ||
-        register.get('userName')?.dirty)) {
-        <div class="alert alert-danger p-2 pb-0 text-center">
-            @if (register.get("userName")?.getError("required")) { <p>يجب ادخال اسم المستخدم</p>
-            }
-            @if (register.get("userName")?.getError("pattern")) { <p>يجب ان يكون علي الاقل 5 احرف</p>
-            }
-           
-        </div>
+
+    <div class="group">
+      <p>
+        <input
+          type="text"
+          formControlName="userName"
+          class="input-name"
+          placeholder="اسم المستخدم"
+        />
+      </p>
+      @if (register.get('userName')?.errors &&
+      (register.get('userName')?.touched || register.get('userName')?.dirty)) {
+      <div class="alert alert-danger p-2 pb-0 text-center">
+        @if (register.get("userName")?.getError("required")) {
+        <p>يجب ادخال اسم المستخدم</p>
+        } @if (register.get("userName")?.getError("pattern")) {
+        <p>يجب ان يكون علي الاقل 5 احرف</p>
         }
-        <p><input type="email" formControlName="email" placeholder=" البريدالالكتروني " ></p>
-        @if (register.get('email')?.errors && (register.get('email')?.touched ||
-        register.get('email')?.dirty)) {
-        <div class="alert alert-danger p-2 pb-0 text-center">
-            @if (register.get("email")?.getError("required")) { <p>يجب ادخال البريدالالكتروني</p>
-            }
-            @if (register.get("email")?.getError("pattern")) { <p > gemy&#64;gmail.com ..يجب ان يكون صحيح مثل
-            </p>
-            }
-
-        </div>
+      </div>
+      }
+      <p>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder=" البريدالالكتروني "
+        />
+      </p>
+      @if (register.get('email')?.errors && (register.get('email')?.touched ||
+      register.get('email')?.dirty)) {
+      <div class="alert alert-danger p-2 pb-0 text-center">
+        @if (register.get("email")?.getError("required")) {
+        <p>يجب ادخال البريدالالكتروني</p>
+        } @if (register.get("email")?.getError("pattern")) {
+        <p>gemy&#64;gmail.com ..يجب ان يكون صحيح مثل</p>
         }
-        <p><input type="phone" formControlName="phoneNumber" placeholder=" رقم الجوال" ></p>
-        @if (register.get('phoneNumber')?.errors && (register.get('phoneNumber')?.touched ||
-        register.get('phoneNumber')?.dirty)) {
-        <div class="alert alert-danger p-2 pb-0 text-center">
-            @if (register.get("phoneNumber")?.getError("required")) { <p>يجب ادخال اسم رقم الهاتف</p>
-            }
-
-        </div>
+      </div>
+      }
+      <p>
+        <input
+          type="phone"
+          formControlName="phoneNumber"
+          placeholder=" رقم الجوال"
+        />
+      </p>
+      @if (register.get('phoneNumber')?.errors &&
+      (register.get('phoneNumber')?.touched ||
+      register.get('phoneNumber')?.dirty)) {
+      <div class="alert alert-danger p-2 pb-0 text-center">
+        @if (register.get("phoneNumber")?.getError("required")) {
+        <p>يجب ادخال اسم رقم الهاتف</p>
         }
-        <div class="position-relative my-3">
-            <input #pass type="password" formControlName="password" class="input-password" placeholder="كلمه المرور " >
-            <div class="position-absolute start-0 me-2 top-50 translate-middle-y ms-1 ">
-                @if (!is_shown) {<i (click)="pass.type='text';is_shown=true" class="fa fa-eye-slash"></i>}
-                @if (is_shown) {<i (click)="pass.type='password';is_shown=false" class="fa fa-eye"></i>}
-            </div>
+      </div>
+      }
+      <div class="position-relative my-3">
+        <input
+          #pass
+          type="password"
+          formControlName="password"
+          class="input-password"
+          placeholder="كلمه المرور "
+        />
+        <div
+          class="position-absolute start-0 me-2 top-50 translate-middle-y ms-1"
+        >
+          @if (!is_shown) {<i
+            (click)="pass.type = 'text'; is_shown = true"
+            class="fa fa-eye-slash"
+          ></i
+          >} @if (is_shown) {<i
+            (click)="pass.type = 'password'; is_shown = false"
+            class="fa fa-eye"
+          ></i
+          >}
         </div>
+      </div>
 
-      
-        
-        @if (register.get('password')?.errors && (register.get('password')?.touched ||
-        register.get('password')?.dirty)) {
-        <div class="alert alert-danger p-2 pb-0 text-center">
-            @if (register.get("password")?.getError("required")) { <p>يجب ادخال كلمه السر </p>
-            }
-            @if (register.get("password")?.getError("pattern")) { <p>كلمة المرور يجب أن تحتوي على حرف كبير، حرف صغير، رقم، وأن تكون على الأقل 5 احرف</p>
-            }
-
-        </div>
+      @if (register.get('password')?.errors &&
+      (register.get('password')?.touched || register.get('password')?.dirty)) {
+      <div class="alert alert-danger p-2 pb-0 text-center">
+        @if (register.get("password")?.getError("required")) {
+        <p>يجب ادخال كلمه السر</p>
+        } @if (register.get("password")?.getError("pattern")) {
+        <p>
+          كلمة المرور يجب أن تحتوي على حرف كبير، حرف صغير، رقم، وأن تكون على
+          الأقل 5 احرف
+        </p>
         }
-        
-        <div class="position-relative my-3">
-            <input #confirm type="password" formControlName="confirmPassword" class="input-password" placeholder=" اعاده كلمه المرور " >
-            <div class="position-absolute start-0 me-2 top-50 translate-middle-y ms-1 ">
-                @if (!is_shown1) {<i (click)="confirm.type='text';is_shown1=true" class="fa fa-eye-slash"></i>}
-                @if (is_shown1) {<i (click)="confirm.type='password';is_shown1=false" class="fa fa-eye"></i>}
-            </div>
+      </div>
+      }
+
+      <div class="position-relative my-3">
+        <input
+          #confirm
+          type="password"
+          formControlName="confirmPassword"
+          class="input-password"
+          placeholder=" اعاده كلمه المرور "
+        />
+        <div
+          class="position-absolute start-0 me-2 top-50 translate-middle-y ms-1"
+        >
+          @if (!is_shown1) {<i
+            (click)="confirm.type = 'text'; is_shown1 = true"
+            class="fa fa-eye-slash"
+          ></i
+          >} @if (is_shown1) {<i
+            (click)="confirm.type = 'password'; is_shown1 = false"
+            class="fa fa-eye"
+          ></i
+          >}
         </div>
+      </div>
 
-        @if (register.getError('mismatch') && (register.get('confirmPassword')?.touched ||
-        register.get('confirmPassword')?.dirty)) {
-        <p class="alert alert-danger p-2 ">يجب مطابقه كلمه السر</p>
-        }
-
-
+      @if (register.getError('mismatch') &&
+      (register.get('confirmPassword')?.touched ||
+      register.get('confirmPassword')?.dirty)) {
+      <p class="alert alert-danger p-2">يجب مطابقه كلمه السر</p>
+      }
     </div>
     <button [disabled]="register.invalid" class="w-50 p-2">انشاء حساب</button>
-    
-    <!-- navigate to login page -->
-</form>
 
+    <!-- navigate to login page -->
+  </form>
 </section>
 
 <app-fixed-info></app-fixed-info>
