@@ -6,38 +6,41 @@
         <p class="design-price"><span class="fw-bold">السعر الكلي</span><span class="full-mony">3559جنيه مصري</span></p>
         <a class="pay btn border-1  border" >الدفع</a>
     </div>
-    <table>
+    <table >
         <thead>
             <tr>
-                <th></th>
-                <th>السعر الكلي</th>
+                
+                <th class="ms-3">السعر الكلي</th>
                 <th>الكمية</th>
                 <th>السعر</th>
                 <th>المنتج</th>
-                <th></th>
+                
             </tr>
         </thead>
         <tbody >
-            <tr>
-                <td>
-                    <i class="fa fa-trash"></i>
+           @for (item of cartp; track item.id) {
+            <tr class="row flex-row-reverse align-items-center  ">
+               
+                <td class="fw-semibold col-3 ">
+                    <div class="d-flex   justify-content-end gap-3 align-items-center">
+                       <p class="m-0 ps-1"> {{item.totalPrice |currency}}</p>
+                        <i class="fa-solid fa-trash  "></i>
+                    </div>
                 </td>
-                <td class="fw-semibold">
-                    23468جنيه مصري
+                <td class="col-3 text-center">
+                    <span class="count ">{{item.quantity}}</span>
                 </td>
-                <td>
-                    <span class="count">4</span>
+                <td class="text-muted col-3 text-center">
+                  {{item.price}}
                 </td>
-                <td class="text-muted">
-                    568جنيه مصري
+                
+                <td class=" col-3  d-flex flex-column ">
+                    <p class="m-0 text-muted"> {{item.productName}}</p>
+                    <img [src]="item.imageUrl" class="imgstyle " [alt]="item.productName">
                 </td>
-                <td class="text-muted">
-                    مج حراري مطبوع
-                </td>
-                <td>
-                    <img src="../../../assets/image/trophy 1.png" alt="">
-                </td>
+                
             </tr>
+           }
             
             
         </tbody>

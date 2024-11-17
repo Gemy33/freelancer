@@ -1,4 +1,11 @@
- .cart-info{
+
+.imgstyle{
+    width: 150px;
+    height: 200px;
+}
+
+
+.cart-info{
     background-color: #faf3ea;
     text-align: center;
     width: 30%;
@@ -39,16 +46,17 @@ thead tr
   
 }
 th{
-    padding-right:58px ;
+    // padding-right:58px ;
 }
 tbody tr{
 
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding-left: 20px;
+    //  direction: ltr;
+    // display: flex;
+    // flex-direction: row-reverse;
+    // justify-content: space-between;
+    // align-items: center;
+    // margin-bottom: 15px;
+    // padding-left: 20px;
 }
 .fa-trash{
     color: #D7A49A;
@@ -73,5 +81,18 @@ tbody tr{
     }
     th{
         padding-right:0 ;
+    }
+    
+}
+@media (max-width:870px){
+    .imgstyle{
+        width: 100px;
+        height: 150px;
+    }
+}
+@media (max-width:500px){
+    .imgstyle{
+        width: 70px;
+        height: 100px;
     }
 }

@@ -24,4 +24,7 @@ export class CartService {
   {
     return this.HttpClient.post(`${baseurl}/api/Cart`,data,{headers:{"Authorization":"Bearer "+this.token}})
   }
+  getCart():Observable<any>{
+    return this.HttpClient.get(`${baseurl}/api/Cart`,{headers:{"Authorization":"Bearer "+this.token}})
+  }
 }
