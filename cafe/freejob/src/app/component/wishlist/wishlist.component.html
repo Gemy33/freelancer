@@ -1,5 +1,5 @@
 <app-bg-fixed page_tital="المفضله" path="الصفحه الرئسيه > المفضله" />
 <app-product [allProduct]="allFavProduct"   [favourit]="true" />
 <div class="text-center my-4 position-relative  fw-semibold">
-    <p class="end-fav">لقد شاهدت 6 منتج من 6 منتج</p>
+    <p class="end-fav">لقد شاهدت {{allFavProduct.length}} منتج من 6 منتج</p>
 </div>

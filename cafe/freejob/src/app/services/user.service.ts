@@ -22,7 +22,9 @@ export class UserService {
     })
   }
 
-  changeProfile(url:string):Observable<any>{
-    return this._HttpClient.put(`${baseurl}/api/Accountt/AddProfilePhoto`,{url})
+  changeProfile(url:FormData):Observable<any>{
+    return this._HttpClient.put(`${baseurl}/api/Accountt/AddProfilePhoto`,url,{
+      headers:{"Authorization":"Bearer "+localStorage.getItem("userToken")}
+    })
   }
 }

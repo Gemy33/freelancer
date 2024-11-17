@@ -1,27 +1,46 @@
-
-
 <div class="m-auto fixedWidth">
-    <h4 class=" mb-4">نظرة عامة على الحساب</h4>
-    <h6 class="almarai-light mb-3">الحساب</h6>
-    <h4 class="almarai-light fs-2 position-relative"><img [src]="userInfo.image" class="imgsty" [alt]="userInfo.userName">
-        
-        {{userInfo.userName}} 
-        <!--         
-                    <input type="file" formControlName="url" id="files" class="d-none"/>
-                <label for="files"><i class="fa-regular fa-image fs-6 position-absolute bottom-0 end-0"></i></label> -->
-    </h4>
-    <h6 class="almarai-light mb-4">{{userInfo.email}} </h6>
-    <h6 class="almarai-light mb-4">{{userInfo.phoneNumber}}</h6>
-    <!-- <div class="d-flex bg-danger justify-content-between"> -->
-        <button class="btn-color almarai-light border-0 rounded-2 width py-2 " routerLink="/الصفحه الشخصيه">تعديل التفاصيل</button>
-        <span class="h6 me-3 pb-2  almarai-light cp" routerLink="/كلمه السر">تغيير كلمه السر</span>
-    <!-- </div> -->
-    <h4 class="mt-4 almarai-larg  mb-3 h5">الطلبات الحديثة</h4>
-    <button class="btn-color almarai-light border-0 rounded-2 width py-2">ابدا التسوق</button>
-    <h4 class="mt-4 almarai-larg  mb-3 h5">العنوان</h4>
-    <button class="btn-color almarai-light border-0 rounded-2 width py-2" routerLink="/العنوان">تعديل العنوان</button>
-    <h4 class="mt-4 almarai-larg  mb-3 h5">تفاصيل الدفع</h4>
-    <button class="btn-color almarai-light border-0 rounded-2 width py-2">عرض</button>
+  <h4 class="mb-4">نظرة عامة على الحساب</h4>
+  <h6 class="almarai-light mb-3">الحساب</h6>
+  <h4 class="almarai-light d-flex  align-items-center gap-3  fs-2 position-relative">
+   <div>
+    <img  [src]="userInfo.image" class="imgsty" [title]="userInfo.userName" [alt]="userInfo.userName" />
 
+
+    <input type="file" placeholder="enter" (change)="onsend($event)" id="files" class="d-none" />
+    <label  for="files"  
+      > <i title="change the photo" 
+        class="fa-regular fa-image cp fs-6 position-absolute bottom-0 end-0"
+      ></i
+    ></label>
+   </div>
+    <p class="almarai-larg">{{ userInfo.userName }}</p>
+  </h4>
+  <h6  class="almarai-light mb-4">{{ userInfo.email }}</h6>
+  <h6 class="almarai-light mb-4">{{ userInfo.phoneNumber }}</h6>
+  <!-- <div class="d-flex bg-danger justify-content-between"> -->
+  <button
+    class="btn-color almarai-light border-0 rounded-2 width py-2"
+    routerLink="/الصفحه الشخصيه"
+  >
+    تعديل التفاصيل
+  </button>
+  <span class="h6 me-3 pb-2 almarai-light cp" routerLink="/كلمه السر"
+    >تغيير كلمه السر</span
+  >
+  <!-- </div> -->
+  <h4 class="mt-4 almarai-larg mb-3 h5">الطلبات الحديثة</h4>
+  <button class="btn-color almarai-light border-0 rounded-2 width py-2">
+    ابدا التسوق
+  </button>
+  <h4 class="mt-4 almarai-larg mb-3 h5">العنوان</h4>
+  <button
+    class="btn-color almarai-light border-0 rounded-2 width py-2"
+    routerLink="/العنوان"
+  >
+    تعديل العنوان
+  </button>
+  <h4 class="mt-4 almarai-larg mb-3 h5">تفاصيل الدفع</h4>
+  <button class="btn-color almarai-light border-0 rounded-2 width py-2">
+    عرض
+  </button>
 </div>
-

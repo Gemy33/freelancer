@@ -1,46 +1,67 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 // import { UserSettingComponent } from "../reuseable-components/user-setting/user-setting.component";
-import { RouterLink } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { userdata } from '../../interfaces/user-data';
 import { UserService } from '../../services/user.service';
-import { json } from 'stream/consumers';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-acount-overview',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './acount-overview.component.html',
-  styleUrl: './acount-overview.component.scss'
+  styleUrl: './acount-overview.component.scss',
 })
-export class AcountOverviewComponent  {
- private readonly _UserService=inject(UserService) 
- userInfo!:userdata
+export class AcountOverviewComponent {
+  private readonly _UserService = inject(UserService);
+  selectedFile!: File;
+
+  private readonly _ToastrService = inject(ToastrService);
+  private readonly _Router = inject(Router);
+  private readonly _ActivatedRoute = inject(ActivatedRoute);
+  userInfo!: userdata;
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.userInfo=JSON.parse(localStorage.getItem("userInfo")!)
-    console.log(" ladkfl;skdjk",this.userInfo)
-  } 
-  urlform:FormGroup=new FormGroup({
-    url:new FormControl(null)
-  })
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo')!);
+    console.log(' ladkfl;skdjk', this.userInfo.image);
+  }
+  onsend(event: Event): void {
+    const input = event.target as HTMLInputElement;
 
-  // changeProfile(event:Event){
-  //   const target = event.target as HTMLInputElement;
-  //   console.log(target)
-  //   if (target.files && target.files.length > 0) {
-  //       console.log(target.files[0].name);
-  //   }
-  //   console.log("url if ",this.urlform.get("url"))
-  //   this._UserService.changeProfile(this.urlform.get("url")?.value).subscribe({
-  //     next:(res)=>{
-  //       console.log(res);
-  //     },
-  //     error:(err)=>{
-  //       console.log(err)
-  //     }
-  //   })
-  // }
+    if (!input.files || input.files.length === 0) {
+      console.error('No file selected!');
+      return;
+    }
 
+    this.selectedFile = input.files[0];
+    console.log('Selected file:', this.selectedFile);
+
+    const formData = new FormData();
+    formData.append('Image', this.selectedFile);
+
+    // Debug FormData
+    formData.forEach((value, key) => {
+      console.log(`${key}:`, value);
+    });
+
+    // Send request
+    this._UserService.changeProfile(formData).subscribe({
+      next: (res) => {
+        console.log('Success:', res);
+        this._ToastrService.success(res.message);
+        this._UserService.getuser().subscribe({
+          next: (res) => {
+            localStorage.setItem("userInfo",JSON.stringify(res));
+          },
+        });
+      
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      },
+      error: (err) => console.error('Error:', err),
+    });
+  }
 }
