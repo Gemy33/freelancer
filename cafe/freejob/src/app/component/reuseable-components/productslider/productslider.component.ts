@@ -28,7 +28,7 @@ export class ProductsliderComponent {
     rtl:true,
     pullDrag: true,
     dots: true,
-    dotsEach:4,
+    dotsEach:2,
     autoplay:true,
     
     autoplayTimeout:3000,

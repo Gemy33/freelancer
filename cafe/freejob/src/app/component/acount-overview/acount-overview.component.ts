@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { userdata } from '../../interfaces/user-data';
 import { UserService } from '../../services/user.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-acount-overview',
@@ -27,6 +28,7 @@ export class AcountOverviewComponent {
     this.userInfo = JSON.parse(localStorage.getItem('userInfo')!);
     console.log(' ladkfl;skdjk', this.userInfo.image);
   }
+ 
   onsend(event: Event): void {
     const input = event.target as HTMLInputElement;
 

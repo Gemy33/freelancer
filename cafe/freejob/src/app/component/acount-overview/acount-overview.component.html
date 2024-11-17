@@ -3,15 +3,15 @@
   <h6 class="almarai-light mb-3">الحساب</h6>
   <h4 class="almarai-light d-flex  align-items-center gap-3  fs-2 position-relative">
    <div>
-    <img  [src]="userInfo.image" class="imgsty" [title]="userInfo.userName" [alt]="userInfo.userName" />
+    <img data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" [src]="userInfo.image" class="imgsty" [title]="userInfo.userName" [alt]="userInfo.userName" />
 
 
     <input type="file" placeholder="enter" (change)="onsend($event)" id="files" class="d-none" />
-    <label  for="files"  
+    <!-- <label  for="files"  
       > <i title="change the photo" 
         class="fa-regular fa-image cp fs-6 position-absolute bottom-0 end-0"
       ></i
-    ></label>
+    ></label> -->
    </div>
     <p class="almarai-larg">{{ userInfo.userName }}</p>
   </h4>
@@ -44,3 +44,30 @@
     عرض
   </button>
 </div>
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content  bg-black">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1> -->
+
+       <i class="fa-solid fa-xmark text-white" data-bs-dismiss="modal" aria-label="Close"></i>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center">
+       <img [src]="userInfo.image" class="w-75" alt="">
+      </div>
+      <label  for="files" class="text-center"> <p class="text-white bg-success px-2 py-1">تغيير الصورة</p>
+      </label>
+      
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
