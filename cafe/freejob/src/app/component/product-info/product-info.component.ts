@@ -122,18 +122,27 @@ export class ProductInfoComponent {
   cart_info=signal<{}>({});
   addToCart(id:number)
   {
+    let q:any =1
+    const hamada=new FormData();
+    hamada.append("ProductId",this.id)
+    hamada.append("Type","مستعجل");
+    hamada.append("Color","#22656");
+    hamada.append("Quantity",q);
     this.cart_info.set({
       ProductId:id,
       Type:"مستعجل",
       Quantity:1,
     })
-    this.CartService.addToCart(this.cart_info()).subscribe({
+    this.CartService.addToCart(hamada).subscribe({
       next:(res)=>{
-        console.log(res);
+        console.log("hamada result ",res);
+        this._ToastrService.success("تم الاضافه الي العربه")
         
       },
       error:(err)=>{
         console.log(err);
+        this._ToastrService.error("حاول الاضافه في وقت لاحق")
+
         
       }
     })

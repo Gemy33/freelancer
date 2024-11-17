@@ -20,7 +20,7 @@ export class CartService {
        
       }
    }
-  addToCart(data:any):Observable<any>
+  addToCart(data:object):Observable<any>
   {
     return this.HttpClient.post(`${baseurl}/api/Cart`,data,{headers:{"Authorization":"Bearer "+this.token}})
   }
