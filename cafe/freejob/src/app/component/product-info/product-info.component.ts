@@ -120,14 +120,15 @@ export class ProductInfoComponent {
   }
   private CartService=inject(CartService)
   cart_info=signal<{}>({});
+  q:any =1
+
   addToCart(id:number)
   {
-    let q:any =1
     const hamada=new FormData();
     hamada.append("ProductId",this.id)
     hamada.append("Type","مستعجل");
     hamada.append("Color","#22656");
-    hamada.append("Quantity",q);
+    hamada.append("Quantity",this.q);
     this.cart_info.set({
       ProductId:id,
       Type:"مستعجل",
@@ -148,6 +149,23 @@ export class ProductInfoComponent {
     })
 
 
+  }
+
+
+  updateCount(n:number){
+   
+    if(this.q==1 && n<0){
+      this._ToastrService.error("الحد الادني للاضافة الي العربه 1")
+    }
+    else if(n>0){
+      this.q+=1;
+    }
+    else if(n<0){
+      this.q-=1
+    }
+   
+    
+   
   }
   
 

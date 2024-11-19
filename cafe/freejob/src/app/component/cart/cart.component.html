@@ -2,8 +2,8 @@
 <section id="cart" class="d-flex my-5 justify-content-around flex-row-reverse align-items-center">
     <div class="cart-info">
         <h2 class="mt-0 mb-4">عربه التسوق</h2>
-        <p class="design-price"> <span class="fw-bold">السعر بعد التخفيض</span><span class="text-secondary">36788حنيه مصري</span></p>
-        <p class="design-price"><span class="fw-bold">السعر الكلي</span><span class="full-mony">3559جنيه مصري</span></p>
+        <p class="design-price"> <span class="fw-bold">السعر بعد التخفيض</span><span class="text-secondary">{{orderSammery.totalPriceAfterDiscount |currency:"EGY "}}</span></p>
+        <p class="design-price"><span class="fw-bold">السعر الكلي</span><span class="full-mony">{{orderSammery.finalTotal |currency:"EGY "}}</span></p>
         <a class="pay btn border-1  border" >الدفع</a>
     </div>
     <table >
@@ -23,8 +23,9 @@
                
                 <td class="fw-semibold col-3 ">
                     <div class="d-flex   justify-content-end gap-3 align-items-center">
-                       <p class="m-0 ps-1"> {{item.totalPrice |currency}}</p>
-                        <i class="fa-solid fa-trash  "></i>
+                       <p class="m-0 ps-1"> {{item.totalPrice }}</p>
+                        <i class="fa-solid fa-trash  " (click)="removeItem(item.id,cartId)"></i>
+                    
                     </div>
                 </td>
                 <td class="col-3 text-center">
@@ -45,6 +46,11 @@
             
         </tbody>
     </table>
+
 </section>
+<div class="container-fluid mb-5 mt-2" (click)="deleteCart()">
+
+    <button class="btn btn-outline-danger">حذف جميع المنتجات</button>
+</div>
 
 <app-fixed-info/>
