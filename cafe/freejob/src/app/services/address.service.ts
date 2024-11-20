@@ -20,6 +20,14 @@ export class AddressService {
    }
   updataAddress(data:Address):Observable<any>
   {
+    return this.HttpClient.put(`${baseurl}/api/Accountt/EditAddress`,data,{headers:{"Authorization":"Bearer "+this.token}})
+  }
+  getUserAddress():Observable<any>
+  {
+    return this.HttpClient.get(`${baseurl}/api/Accountt/GetUserAddressess`,{headers:{"Authorization":"Bearer "+this.token}})
+  }
+  addAddress(data:Address):Observable<any>
+  {
     return this.HttpClient.post(`${baseurl}/api/Accountt/AddAddress`,data,{headers:{"Authorization":"Bearer "+this.token}})
   }
 }

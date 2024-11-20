@@ -5,12 +5,13 @@ import { CartService } from '../../services/cart.service';
 import { cartproduct } from '../../interfaces/cartproduct';
 import { CurrencyPipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [BgFixedComponent, FixedInfoComponent,CurrencyPipe],
+  imports: [BgFixedComponent,RouterLink, FixedInfoComponent,CurrencyPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
@@ -49,7 +50,9 @@ export class CartComponent  implements OnInit{
             console.log("result : ",res);
             
             console.log("cart",this.cartp)
-            location.reload();
+            setTimeout(()=>{
+              location.reload();
+            },1000)
           },
           error:(err)=>{
             console.log("err",err)
@@ -71,6 +74,11 @@ export class CartComponent  implements OnInit{
         console.log("delete cart err",err)
       }
     })
+  }
+  paying()
+  {
+    // console.log(this.deleteCart);
+    
   }
 
   

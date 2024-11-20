@@ -4,7 +4,7 @@
         <h2 class="mt-0 mb-4">عربه التسوق</h2>
         <p class="design-price"> <span class="fw-bold">السعر بعد التخفيض</span><span class="text-secondary">{{orderSammery.totalPriceAfterDiscount |currency:"EGY "}}</span></p>
         <p class="design-price"><span class="fw-bold">السعر الكلي</span><span class="full-mony">{{orderSammery.finalTotal |currency:"EGY "}}</span></p>
-        <a class="pay btn border-1  border" >الدفع</a>
+        <a (click)="paying()" [routerLink]="['/اضافه عنوان',cartId]" class="pay btn border-1  border" >الدفع</a>
     </div>
     <table >
         <thead>
