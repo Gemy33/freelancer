@@ -18,8 +18,8 @@ export const appConfig: ApplicationConfig = {
   provideHttpClient(withFetch(),withInterceptors([alertInterceptor])),
   provideAnimations(),
   provideToastr(),
-   provideAnimations(),
-   importProvidersFrom( NgxSpinnerModule )   
+  provideAnimations(),
+  importProvidersFrom( NgxSpinnerModule )   
      
     
   ],

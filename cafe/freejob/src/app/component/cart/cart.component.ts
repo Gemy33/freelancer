@@ -5,12 +5,13 @@ import { CartService } from '../../services/cart.service';
 import { cartproduct } from '../../interfaces/cartproduct';
 import { CurrencyPipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [BgFixedComponent, FixedInfoComponent,CurrencyPipe],
+  imports: [BgFixedComponent, FixedInfoComponent,CurrencyPipe,RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
@@ -19,6 +20,8 @@ export class CartComponent  implements OnInit{
    cartp!:cartproduct[]
    
    cartId!:string
+   useraddress!:string
+   
    orderSammery:any
   private readonly _CartService=inject(CartService)
   private readonly _ToastrService=inject(ToastrService)
@@ -72,6 +75,9 @@ export class CartComponent  implements OnInit{
       }
     })
   }
+
+  
+
 
   
 

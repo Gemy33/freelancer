@@ -55,6 +55,7 @@ export const routes: Routes = [
         {path:"الطلبات",component:OrderingComponent,title:"الاعدادات"},       
         {path:"العنوان",component:AddressComponent,title:"الاعدادات"},       
         {path:"تفاصيل الدفع",component:PayingInfoComponent,title:"الاعدادات"},       
+        {path:"المدينة",component:PayingInfoComponent,title:"الدفع"},       
     ]
 }
 ]
