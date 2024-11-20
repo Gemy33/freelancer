@@ -1,1 +1,31 @@
-<p class="h4">الطلبات</p>
+
+<nav class="d-flex justify-content-between align-items-center mb-4">
+    <h5 (click)="orderType(1)" class="almarai-light" [ngClass]="{'quiecly':orderspeed()==1}">قيد المعاينة</h5>
+    <h5 (click)="orderType(2)" class="almarai-light" [ngClass]="{'quiecly':orderspeed()==2}">تم التسليم</h5>
+    <h5 (click)="orderType(3)" class="almarai-light" [ngClass]="{'quiecly':orderspeed()==3}">تم الالغاء</h5>
+</nav>
+@for (item of productOrder(); track $index) {
+    <section class="w-75 py-3 mb-4 m-auto bg-warning-subtle" (click)="traking(item.id)">
+       
+    
+        <div class="px-3 d-flex justify-content-between align-items-center">
+            <div>
+                <p>{{item.orderDate}}</p>
+               <div class="d-flex justify-content-between">
+                <p>{{item.quantity}}عناصر</p>
+                <p class="m-0">{{item.total |currency:" EGY "}}</p>
+               </div>
+            </div>
+            <p class="text-danger">تعقب الطلب</p>
+    
+        </div>
+        <div class="row p-2">
+            @for (img of item.orderItemPhoto; track $index) {
+                <div class="col-4 ">
+                    <img [src]="img" class="w-100" height="250px" alt="">
+                </div>
+            }
+    
+        </div>
+    </section> 
+} 

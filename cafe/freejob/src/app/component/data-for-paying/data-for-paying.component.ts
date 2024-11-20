@@ -105,6 +105,7 @@ export class DataForPayingComponent implements OnInit {
             this._OrderService.creatOrder(this.Data_for_order).subscribe({
               next: (res) => {
                 console.log(res, 'done');
+                this.addressGroup.reset();
               },
               error: (err) => {
                 console.log(err, 'er');

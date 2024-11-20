@@ -18,4 +18,7 @@ return this.HttpClient.post(`${baseurl}/api/Order`,data,{headers:{"Authorization
   {
     return this.HttpClient.get(`${baseurl}/api/Order/UserOrders`,{headers:{"Authorization":"Bearer "+this.token}})
   }
+  getSpecOrder(id:number):Observable<any>{
+    return this.HttpClient.get(`${baseurl}/api/Order/${id}`,{headers:{"Authorization":"Bearer "+this.token}})
+  }
 }
