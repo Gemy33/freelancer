@@ -1,5 +1,5 @@
 import { AddressService } from './../../services/address.service';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Address } from '../../interfaces/address';
 import { fail } from 'node:assert';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-address',
@@ -18,8 +19,10 @@ import { fail } from 'node:assert';
   styleUrl: './address.component.scss',
 })
 export class AddressComponent {
+  userId = signal<number>(1);
   isClicked = signal(false);
   private readonly AddressService = inject(AddressService);
+  private readonly ToastrService = inject(ToastrService);
   Address = signal<Address>({} as Address);
   addressGroup = new FormGroup({
     city: new FormControl('بني سويف', { validators: [Validators.required] }),
@@ -42,8 +45,16 @@ export class AddressComponent {
 
       return;
     }
+    this.AddressService.getUserAddress().subscribe({
+      next: (res) => {
+        this.userId.set(res[0].id);
+        console.log(this.userId(), 'idljkjk');
 
+        console.log('user add', res[0]);
+      },
+    });
     this.Address.set({
+      id: this.userId(),
       city: this.addressGroup.get('city')?.value!,
       country: this.addressGroup.get('country')?.value!,
       fullName:
@@ -53,19 +64,25 @@ export class AddressComponent {
       region: this.addressGroup.get('region')?.value!,
       addressDetails: '',
     });
+    console.log(this.Address(), 'address');
+
     this.AddressService.updataAddress(this.Address()).subscribe({
       next: (res) => {
-        console.log(res);
+        console.log(res, 'next here');
+        this.ToastrService.success(res.message);
+
         this.isClicked.set(false);
       },
       error: (err) => {
         this.isClicked.set(false);
 
-        console.log(err);
+        console.log(err, 'error');
       },
     });
+    this.addressGroup.reset();
 
     console.log(this.addressGroup);
     console.log(this.Address());
   }
+  
 }

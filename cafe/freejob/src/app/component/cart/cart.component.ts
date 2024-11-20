@@ -11,7 +11,11 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-cart',
   standalone: true,
+<<<<<<< HEAD
   imports: [BgFixedComponent, FixedInfoComponent,CurrencyPipe,RouterLink],
+=======
+  imports: [BgFixedComponent,RouterLink, FixedInfoComponent,CurrencyPipe],
+>>>>>>> 29765ccf57227fa5de45ecb2be7c1257db24c1d6
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
@@ -52,7 +56,9 @@ export class CartComponent  implements OnInit{
             console.log("result : ",res);
             
             console.log("cart",this.cartp)
-            location.reload();
+            setTimeout(()=>{
+              location.reload();
+            },1000)
           },
           error:(err)=>{
             console.log("err",err)
@@ -74,6 +80,11 @@ export class CartComponent  implements OnInit{
         console.log("delete cart err",err)
       }
     })
+  }
+  paying()
+  {
+    // console.log(this.deleteCart);
+    
   }
 
   
