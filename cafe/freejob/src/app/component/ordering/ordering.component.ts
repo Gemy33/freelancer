@@ -1,60 +1,131 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ProductComponent } from "../product/product.component";
+import { ProductComponent } from '../product/product.component';
 import { OrderService } from '../../services/order.service';
 import { CurrencyPipe, NgClass } from '@angular/common';
+import { log } from 'node:util';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ordering',
   standalone: true,
-  imports: [CurrencyPipe,NgClass],
+  imports: [CurrencyPipe, NgClass],
   templateUrl: './ordering.component.html',
-  styleUrl: './ordering.component.scss'
+  styleUrl: './ordering.component.scss',
 })
-export class OrderingComponent implements OnInit{
-  private readonly _OrderService=inject(OrderService)
-  orderspeed=signal<number>(1)
-  productOrder=signal<any[]>([] as any)
+export class OrderingComponent implements OnInit {
+  private readonly _OrderService = inject(OrderService);
+  private readonly _ToastrService = inject(ToastrService);
+
+  orderspeed = signal<number>(0);
+  productOrder1 = signal<any[]>([] as any);
+  productOrder2 = signal<any[]>([] as any);
+  productOrder3 = signal<any[]>([] as any);
+  productOrder = signal<any[]>([] as any);
   ngOnInit(): void {
     this._OrderService.GetAllOrdersForUser().subscribe({
-      next:(res)=>{
-        this.productOrder.set(res)
-        console.log(this.productOrder());
-        
-      },error:(err)=>{
-        console.log(err);
-        
-      }
-    })
-  }
-  orderStatus(id:number){
-    this._OrderService.getSpecOrder(id).subscribe({
-      next:(res)=>{
-        console.log(res,"resultdfjalkjlk")
+      next: (res) => {
+        this.productOrder1.set(res);
+        this.productOrder2.set(res);
+        this.productOrder3.set(res);
+        this.productOrder.set(res);
+        console.log(this.productOrder1(), 'befor');
+        this.productOrder1.set(
+          this.productOrder1().filter((i) => i.status == 'قيد المعاينة')
+        );
+        this.productOrder3.set(
+          this.productOrder3().filter((i) => i.status == 'تم الالغاء')
+        );
+        this.productOrder2.set(
+          this.productOrder2().filter((i) => i.status == 'تم التسليم')
+        );
+       
       },
-      error:(err)=>{
-        console.log(err)
-      }
-    })
-
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
-  traking(orderid:number){
-
+  orderStatus(id: number) {
+    this._OrderService.getSpecOrder(id).subscribe({
+      next: (res) => {
+        console.log(res, 'resultdfjalkjlk');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
-  orderType(n:number){
+  traking(orderid: number) {}
+  orderType(n: number) {
     this.orderspeed.set(n);
-    if(this.orderspeed()==1){
-      this.productOrder.set(this.productOrder().filter((item)=>item.status=="قيد المعاينة"))
-    }
-    else if(this.orderspeed()==2){
+    console.log(this.orderspeed());
 
-      this.productOrder.set(this.productOrder().filter((item)=>item.status=="تم التسليم"))
-    }
-    else if(this.orderspeed()==3){
+    // if(this.orderspeed()==1){
+    //   this.productOrder.set(this.productOrder().filter((item)=>item.status=="قيد المعاينة"))
+    //   console.log("قيد",this.productOrder());
 
-      this.productOrder.set(this.productOrder().filter((item)=>item.status=="تم الالغاء"))
-    }
+    // }
+    // else if(this.orderspeed()==2){
 
+    //   this.productOrder.set(this.productOrder().filter((item)=>item.status=="تم التسليم"))
+    //   console.log("تسليم",this.productOrder());
 
+    // }
+    // else if(this.orderspeed()==3){
+
+    //   this.productOrder.set(this.productOrder().filter((item)=>item.status=="تم الالغاء"))
+    //   console.log("الغاء",this.productOrder());
+
+    // }
   }
+  reorder(id: number) {
+    this._OrderService.reorder(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this._ToastrService.success(res.message);
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+  cancle_order(id: number) {
+    // console.log(this.productOrder1()[0].id,"::",this.productOrder1());
 
+    console.log(id);
+
+    this._OrderService.cancle_order(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this._ToastrService.success(res.message);
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+  delete_order(id: number) {
+    // console.log(this.productOrder1()[0].id,"::",this.productOrder1());
+
+    console.log(id);
+
+    this._OrderService.delete_order(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this._ToastrService.success(res.message);
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { debounceTime, Observable } from 'rxjs';
 import { baseurl } from '../enviroment/baseurl';
 import { Products } from '../interfaces/products';
 
@@ -9,6 +9,7 @@ import { Products } from '../interfaces/products';
 })
 export class ProductsService {
   specproducts=signal<Products[]>([])
+  token=localStorage.getItem('userToken')
   constructor(private _HttpClient:HttpClient) { }
   allProducts():Observable<any>
   {
@@ -16,5 +17,10 @@ export class ProductsService {
   }
   specificProduct(id:string):Observable<any>{
     return this._HttpClient.get(`${baseurl}/api/Product/${id}`)
+  }
+  searchByName(name:string):Observable<any>
+  {
+    return this._HttpClient.get(`${baseurl}/api/Product/SearchByName?ProductName=${name}`,{headers:{"Authorization":"Bearer "+this.token}})
+
   }
 }

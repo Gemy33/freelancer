@@ -23,6 +23,7 @@ import { OrderingComponent } from './component/ordering/ordering.component';
 import { AddressComponent } from './component/address/address.component';
 import { PayingInfoComponent } from './component/paying-info/paying-info.component';
 import { DataForPayingComponent } from './component/data-for-paying/data-for-paying.component';
+import { SearchBynameComponent } from './component/search-byname/search-byname.component';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -45,6 +46,7 @@ export const routes: Routes = [
     {path:"تعقب",component:TrackingComponent,title:"تعقب"},
     {path:"حاله التعقب",component:TrackingInfoComponent,title:"تعقب"},
     {path:"الاعدادات",component:UserSettingComponent,title:"الاعدادات"},
+    {path:"البحث",component:SearchBynameComponent,title:"البحث"},
     {path:"اضافه عنوان/:ID",component:DataForPayingComponent,title:"الاعدادات"},
    
     //must make not found component;

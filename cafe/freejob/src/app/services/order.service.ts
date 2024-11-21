@@ -21,4 +21,15 @@ return this.HttpClient.post(`${baseurl}/api/Order`,data,{headers:{"Authorization
   getSpecOrder(id:number):Observable<any>{
     return this.HttpClient.get(`${baseurl}/api/Order/${id}`,{headers:{"Authorization":"Bearer "+this.token}})
   }
+
+  cancle_order(id:number):Observable<any>{
+    return this.HttpClient.put(`${baseurl}/api/Order/Cancel/${id}`,undefined,{headers:{"Authorization":"Bearer "+this.token}})
+  }
+  reorder(id:number):Observable<any>{
+    return this.HttpClient.put(`${baseurl}/api/Order/ReOrder/${id}`,{},{headers:{"Authorization":"Bearer "+this.token}})
+  }
+  delete_order(id:number):Observable<any>{
+    return this.HttpClient.delete(`${baseurl}/api/Order/DeleteOrder/${id}`,{headers:{"Authorization":"Bearer "+this.token}})
+  }
+  
 }
