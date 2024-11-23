@@ -1,30 +1,31 @@
 
 
+<div class="d-flex justify-content-between align-items-center mb-4  " >
+    <!-- have a problem here in resbonsive when click on تم التسليم  -->
+    <h4 (click)="orderType(0)" class="almarai-light " [ngClass]="{'quiecly': orderspeed()==0}">قيد المعاينة</h4>
+    <h4 (click)="orderType(2)" class="almarai-light " [ngClass]="{'quiecly':orderspeed()==2}">تم التسليم</h4>
+    <h4 (click)="orderType(3)" class="almarai-light" [ngClass]="{'quiecly':orderspeed()==3}">تم الالغاء</h4>
+</div>
 <div class="container">
-    <nav class="d-flex justify-content-between align-items-center mb-4">
-        <h5 (click)="orderType(0)" class="almarai-light" [ngClass]="{'quiecly': orderspeed()==0}">قيد المعاينة</h5>
-        <h5 (click)="orderType(2)" class="almarai-light" [ngClass]="{'quiecly':orderspeed()==2}">تم التسليم</h5>
-        <h5 (click)="orderType(3)" class="almarai-light" [ngClass]="{'quiecly':orderspeed()==3}">تم الالغاء</h5>
-    </nav>
     @for (item of orderspeed()== 0  ? productOrder1() : orderspeed()==2? productOrder2():orderspeed()==3 ? productOrder3() : null; track $index) {
-        <section class=" py-3 mb-4 m-auto bg-warning-subtle" (click)="traking(item.id)">
+        <section class=" py-3 mb-4 m-auto bg" (click)="traking(item.id)">
            
         
-            <div class="px-3 d-flex justify-content-between align-items-center">
+            <div class="px-1 d-flex justify-content-between align-items-center">
                 <div>
                     <p>{{item.orderDate}}</p>
-                   <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-evenly">
                     <p>{{item.quantity}}عناصر</p>
-                    <p class="m-0">{{item.total |currency:" EGY "}}</p>
+                    <p class="m-0">{{item.total |currency:"EGY "}}</p>
                    </div>
                 </div>
                 <p class="text-danger">تعقب الطلب</p>
         
             </div>
-            <div class="row p-2">
+            <div class="row p-1">
                 @for (img of item.orderItemPhoto; track $index) {
                     <div class="col-4 ">
-                        <img [src]="img" class="w-100" height="250px" alt="">
+                        <img [src]="img" class="w-100 height" alt="">
                     </div>
                 }
         
@@ -36,4 +37,4 @@
     } 
    
 
-</div>
+</div> 

@@ -74,6 +74,10 @@ width: 100%;
     border:1px solid var(--main-color);
     background-color: white;
 }
+.bord{
+   transform: scale(1.4);
+   border: 1px solid red;
+}
 @media (min-width:700px){
     .usernamesize{
         font-size: 30px;

@@ -2,3 +2,22 @@
     border-bottom: 2px solid #E1B8AC;
     padding: 0 0 5px 0;
 }
+.bg{
+    background-color: #FAF3EA;
+}
+.height{
+    height: 250px;
+}
+.w{
+    width: 100% !important;
+}
+@media (max-width:500px){
+    .height{
+        height: 180px;
+    }
+}
+@media (max-width:700px){
+    .height{
+        height: 200px;
+    }
+}

@@ -1,8 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ProductComponent } from '../product/product.component';
 import { OrderService } from '../../services/order.service';
 import { CurrencyPipe, NgClass } from '@angular/common';
-import { log } from 'node:util';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -58,25 +56,6 @@ export class OrderingComponent implements OnInit {
   traking(orderid: number) {}
   orderType(n: number) {
     this.orderspeed.set(n);
-    console.log(this.orderspeed());
-
-    // if(this.orderspeed()==1){
-    //   this.productOrder.set(this.productOrder().filter((item)=>item.status=="قيد المعاينة"))
-    //   console.log("قيد",this.productOrder());
-
-    // }
-    // else if(this.orderspeed()==2){
-
-    //   this.productOrder.set(this.productOrder().filter((item)=>item.status=="تم التسليم"))
-    //   console.log("تسليم",this.productOrder());
-
-    // }
-    // else if(this.orderspeed()==3){
-
-    //   this.productOrder.set(this.productOrder().filter((item)=>item.status=="تم الالغاء"))
-    //   console.log("الغاء",this.productOrder());
-
-    // }
   }
   reorder(id: number) {
     this._OrderService.reorder(id).subscribe({

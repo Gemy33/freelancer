@@ -1,5 +1,5 @@
 import { CartService } from './../../services/cart.service';
-import { Component, inject, signal, viewChild, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild, ViewChild } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IproductInfo } from '../../interfaces/products';
@@ -7,6 +7,7 @@ import { CurrencyPipe, NgClass } from '@angular/common';
 import { FavouriteService } from '../../services/favourite.service';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { sign } from 'node:crypto';
         
 
 @Component({
@@ -64,6 +65,20 @@ export class ProductInfoComponent {
       }
     })
   }
+
+
+  colorc=signal<string>("")
+ 
+
+  border(color:string){
+   this.colorc.set(color)
+   
+   console.log(this.colorc(),"aksdjflkajlsjflkasj")
+   
+  
+  }
+
+
   visible: boolean = false;
 
   showDialog() {
@@ -122,13 +137,16 @@ export class ProductInfoComponent {
   cart_info=signal<{}>({});
   q:any =1
 
+
+
   addToCart(id:number)
   {
     const hamada=new FormData();
     hamada.append("ProductId",this.id)
     hamada.append("Type","مستعجل");
-    hamada.append("Color","#22656");
+    hamada.append("Color",this.colorc());
     hamada.append("Quantity",this.q);
+    
     this.cart_info.set({
       ProductId:id,
       Type:"مستعجل",
@@ -151,6 +169,7 @@ export class ProductInfoComponent {
 
   }
 
+  
 
   updateCount(n:number){
    

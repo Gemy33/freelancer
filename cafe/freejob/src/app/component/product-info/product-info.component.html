@@ -62,7 +62,8 @@
           <p class="m-0">الوان متوفرة</p>
           <div class="d-flex justify-content-center align-items-center gap-1 ">
             @for (color of products.colors; track $index) {
-            <span class="dot" [style]="{backgroundColor:color}"></span>
+            <input type="radio" class="opacity-0" [id]="color" #bbb  name="color" [value]="color">
+            <label [for]="color" [ngClass]="{'bord':color==colorc()}" class="dot shadow-sm  " (click)="border(color)" [style]="{backgroundColor:color}"></label>
             }
 
           </div>
