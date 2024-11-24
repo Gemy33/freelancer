@@ -13,9 +13,11 @@
       </div>
       <div class="col-12 col-md-6 mt-3 col-lg-8 px-lg-4 gap-2">
 
-        <div class="options mb-2 d-flex justify-content-evenly align-items-center">
-          <h6 class=" font" (click)="orderType()" [ngClass]="{'quiecly':orderspeed()}">مستعجل</h6>
-          <h6 class="font" (click)="orderType()" [ngClass]="{'quiecly':!orderspeed()}">عادي</h6>
+        <div class="options mb-3 d-flex justify-content-center gap-3  align-items-center">
+          <input class="opacity-0"  type="checkbox" name="type" id="very">
+          <label for="very"  class=" font" (click)="orderType('مستعجل')" [ngClass]="{'quiecly':orderspeed()}">مستعجل</label>
+          <input class="opacity-0"  type="checkbox" name="type" id="easy">
+          <label for="easy" class="font" (click)="orderType('عادي')" [ngClass]="{'quiecly':!orderspeed()}">عادي</label>
         </div>
         <div class="d-flex justify-content-between w-100 fixWidth align-items-center">
           <h4>{{products.name}}</h4>
@@ -92,9 +94,8 @@
         <div class="  d-flex justify-content-center align-items-center gap-1">
 
           <button class="bot rounded-2 px-2 py-1" (click)="updateCount(1)"><i class="fas fa-plus"></i></button>
-        <h4 class="m-0">{{q}}</h4>
+          <h4 class="m-0">{{q}}</h4>
           <button class="bot rounded-2 px-2 py-1" (click)="updateCount(-1)"><i class="fas fa-minus"></i></button>
-
           <button class="bot rounded-2 px-2 py-1" (click)="addToCart(products.id)"> اضافة الي العربة</button>
         </div>
       </div>

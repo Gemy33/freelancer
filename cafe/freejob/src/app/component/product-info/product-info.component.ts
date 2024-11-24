@@ -124,7 +124,7 @@ export class ProductInfoComponent {
 
     }
   }
-  orderType(){
+  orderType(value:string){
     if(this.orderspeed()==true){
 
       this.orderspeed.set(false);
@@ -132,10 +132,14 @@ export class ProductInfoComponent {
     else{
       this.orderspeed.set(true)
     }
+    this.type.set(value);
+    console.log(this.type());
+    
   }
   private CartService=inject(CartService)
   cart_info=signal<{}>({});
   q:any =1
+  type=signal<string>('مستعجل');
 
 
 
@@ -143,7 +147,7 @@ export class ProductInfoComponent {
   {
     const hamada=new FormData();
     hamada.append("ProductId",this.id)
-    hamada.append("Type","مستعجل");
+    hamada.append("Type",this.type());
     hamada.append("Color",this.colorc());
     hamada.append("Quantity",this.q);
     
