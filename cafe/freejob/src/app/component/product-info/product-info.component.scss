@@ -76,7 +76,7 @@ width: 100%;
 }
 .bord{
    transform: scale(1.4);
-   border: 1px solid red;
+   border: 1px solid var(--main-color);
 }
 @media (min-width:700px){
     .usernamesize{

@@ -3,9 +3,10 @@ import {
   inject,
 
 } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { NgClass } from '@angular/common';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,7 @@ import { NgClass } from '@angular/common';
 })
 export class NavbarComponent {
 private readonly _AuthService = inject(AuthService);
+private readonly _Router = inject(Router);
 
 
   ngOnInit(): void {
@@ -63,6 +65,15 @@ logOut()
 {
   this._AuthService.logout();
   this._AuthService.updataIsNotlogin(true);
+}
+router(){
+  if(localStorage.getItem("userToken")){
+    this._Router.navigate(["/عام"])
+  }
+  else{
+    this._Router.navigate(['/تسجيل الدخول'])
+    
+  }
 }
 
 

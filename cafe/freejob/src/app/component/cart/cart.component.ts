@@ -1,9 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { BgFixedComponent } from "../reuseable-components/bg-fixed/bg-fixed.component";
 import { FixedInfoComponent } from "../reuseable-components/fixed-info/fixed-info.component";
 import { CartService } from '../../services/cart.service';
 import { cartproduct } from '../../interfaces/cartproduct';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { RouterLink } from '@angular/router';
 
@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
 
 
-  imports: [BgFixedComponent,RouterLink, FixedInfoComponent,CurrencyPipe],
+  imports: [BgFixedComponent,RouterLink, FixedInfoComponent,CurrencyPipe,NgClass],
 
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
@@ -26,6 +26,8 @@ export class CartComponent  implements OnInit{
    useraddress!:string
    
    orderSammery:any
+   emptycart=signal<boolean>(false)
+
   private readonly _CartService=inject(CartService)
   private readonly _ToastrService=inject(ToastrService)
   ngOnInit(): void {
@@ -34,6 +36,11 @@ export class CartComponent  implements OnInit{
         this.orderSammery=res.orderSammery
         this.cartId=res.id;
         this.cartp=res.items
+        if(this.cartp.length!=0){
+
+          this.emptycart.set(true)
+        }
+      
         console.log("result : ",res);
         
         console.log("cart",this.cartp)
@@ -42,11 +49,14 @@ export class CartComponent  implements OnInit{
         console.log("err",err)
       }
     })
+    
+   
   }
   removeItem(itemId:string,cartId:string){
     this._CartService.removeItemFromCart(itemId,cartId).subscribe({
       next:(res)=>{
         console.log("remove result ; ",res);
+        this.ngOnInit()
         this._CartService.getCart().subscribe({
           next:(res)=>{
             this.cartId=res.id;
@@ -55,9 +65,9 @@ export class CartComponent  implements OnInit{
             console.log("result : ",res);
             
             console.log("cart",this.cartp)
-            setTimeout(()=>{
-              location.reload();
-            },1000)
+           this.ngOnInit()
+              // location.reload();
+            
           },
           error:(err)=>{
             console.log("err",err)
@@ -73,7 +83,7 @@ export class CartComponent  implements OnInit{
     this._CartService.deleteCart(this.cartId).subscribe({
       next:(res)=>{
        
-        location.reload();
+        this.ngOnInit()
       },
       error:(err)=>{
         console.log("delete cart err",err)

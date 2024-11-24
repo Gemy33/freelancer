@@ -1,4 +1,5 @@
 <app-bg-fixed page_tital="عربه التسوق"/>
+
 <section id="cart" class="d-flex my-5 justify-content-around flex-row-reverse align-items-center">
     <div class="cart-info">
         <h2 class="mt-0 mb-4">عربه التسوق</h2>
@@ -9,6 +10,7 @@
         <a (click)="paying()" [routerLink]="['/اضافه عنوان',cartId]" class="pay btn border-1  border" >الدفع</a>
 
     </div>
+
     <table >
         <thead>
             <tr>
@@ -21,6 +23,9 @@
             </tr>
         </thead>
         <tbody >
+            
+
+           
            @for (item of cartp; track item.id) {
             <tr class="row flex-row-reverse align-items-center  ">
                
@@ -45,12 +50,15 @@
                 
             </tr>
            }
+
             
             
         </tbody>
     </table>
 
 </section>
+<img src="../../../assets/image/empty-cart.png" [ngClass]="{'d-none': emptycart()}" class="w-25 m-auto d-block" alt="">
+
 <div class="container-fluid mb-5 mt-2" (click)="deleteCart()">
 
     <button class="btn btn-outline-danger">حذف جميع المنتجات</button>
