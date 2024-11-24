@@ -100,14 +100,34 @@
         </div>
       </div>
       <div class="col-12 col-md-6"></div>
+
       <div class="col-12 col-md-6  d-flex justify-content-center align-items-center flex-column gap-3 ">
-        <button class="w-100 buton position-relative "> اختر التاريخ <img src="../../../assets/image/historyicon.png"
-            class="position-absolute cordanate" alt=""></button>
-        <button class="w-100 buton position-relative">حمل ملف pdf لطباعته <img
+       
+
+        <div class="data w-100 position-relative text-center">
+          <input [(ngModel)]="dateValue"  type="date" class="w-100 buton cp" name="" id="">
+          <p  class="position-absolute start-50 top-50 translate-middle fw-semibold ">اختر التاريخ </p>
+        </div>
+        <div class="pdf w-100 position-relative text-center">
+          <input id="pdf"   (change)="showPdf($event)"  type="file" class="w-100 buton cp" name="" id="">
+          <label for="pdf"     class="position-absolute start-50 top-50 w-100 translate-middle fw-semibold ">اختر ملف </label>
+        </div>
+        <div class="photo w-100 position-relative text-center">
+          <input id="photo"  (change)="showPhoto($event)" multiple type="file" class="w-100 buton cp" name="" id="">
+          <label for ="photo"  class="position-absolute start-50 top-50 translate-middle fw-semibold ">اختر صوره </label>
+        </div>
+
+
+        <!-- <button class="w-100 buton position-relative "> اختر التاريخ <img src="../../../assets/image/historyicon.png"
+            class="position-absolute cordanate" alt=""></button> -->
+
+        <!-- <button class="w-100 buton position-relative">حمل ملف pdf لطباعته <img
             src="../../../assets/image/downloadicon.png" class="position-absolute cordanate" alt=""></button>
         <button class="w-100 buton position-relative">حمل الصورة <img src="../../../assets/image/down.png"
-            class="position-absolute cordanate" alt=""></button>
+            class="position-absolute cordanate" alt=""></button> -->
+            
       </div>
+
       <div class="col-12 col-md-6  mt-3">
         <textarea name="" rows="5" placeholder="اكتب ملاحظاتك عن المنتج هنا ...."
           class="w-100 border-3 me-auto area p-2" id=""></textarea>
