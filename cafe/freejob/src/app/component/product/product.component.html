@@ -2,7 +2,7 @@
     <div class="container-fluid text-center">
         <div class="row">
            @for (product of allProduct; track product.id) {
-            <div class="col-lg-2 d-flex flex-column justify-content-between  mb-2   pb-2  col-md-3 col-sm-4 col-6 main-design ">
+            <div class="col-lg-2 d-flex flex-column justify-content-between  mb-2   pb-1  col-md-3 col-sm-4 col-6 main-design ">
                 <div  class="d-flex flex-column m-0 p-0 justify-content-between" [routerLink]="['/تفاصيل',product.id]">
                     <img [src]="product.photoUrl" class="w-100 fixed-height" height="250px"  alt="">
                     

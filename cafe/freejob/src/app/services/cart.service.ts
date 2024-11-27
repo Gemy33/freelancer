@@ -16,7 +16,6 @@ export class CartService {
     if (typeof localStorage !== 'undefined')
       {
        this.token= localStorage.getItem('userToken') !;
-       console.log(this.token);
        
       }
    }

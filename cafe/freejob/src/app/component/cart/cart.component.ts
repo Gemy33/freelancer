@@ -41,12 +41,9 @@ export class CartComponent  implements OnInit{
           this.emptycart.set(true)
         }
       
-        console.log("result : ",res);
         
-        console.log("cart",this.cartp)
       },
       error:(err)=>{
-        console.log("err",err)
       }
     })
     
@@ -55,7 +52,6 @@ export class CartComponent  implements OnInit{
   removeItem(itemId:string,cartId:string){
     this._CartService.removeItemFromCart(itemId,cartId).subscribe({
       next:(res)=>{
-        console.log("remove result ; ",res);
         this.ngOnInit()
         this._CartService.getCart().subscribe({
           next:(res)=>{
@@ -75,7 +71,6 @@ export class CartComponent  implements OnInit{
         })
       },
       error:(err)=>{
-        console.log("error :  ",err)
       }
     })
   }
@@ -86,7 +81,6 @@ export class CartComponent  implements OnInit{
         this.ngOnInit()
       },
       error:(err)=>{
-        console.log("delete cart err",err)
       }
     })
   }
