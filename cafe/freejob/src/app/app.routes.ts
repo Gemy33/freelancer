@@ -33,20 +33,22 @@ export const routes: Routes = [
     {path:"التسوق",component:MarktingComponent,title:"التسوق"},
     {path:"من نحن",component:WhoWeAreComponent,title:"من نحن"},
     {path:"تواصل معنا",component:CommunicationUsComponent,title:"تواصل معنا"},
-    {path:"المفضلة",component:WishlistComponent,title:"المفضلة"},
     {path:"تفاصيل/:id",component:ProductInfoComponent,title:"تفاصيل منتج"},
-    
-]},
-{path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
-    {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
-    {path:"الدفع",component:PaymentComponent,title:"الدفع "},
     {path:"انشاء حساب",component:RegisterComponent ,title:"انشاء حساب"},
     {path:"تسجيل الدخول",component:LoginComponent,title:"تسجيل الدخول"},
     {path:"forgetpassword",component:ForgetpasswordComponent,title:"forgetpassword"},
+    {path:"البحث",component:SearchBynameComponent,title:"البحث"},
+
+
+    
+]},
+{path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
+    {path:"المفضلة",component:WishlistComponent,title:"المفضلة"},
+    {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
+    {path:"الدفع",component:PaymentComponent,title:"الدفع "},
     {path:"تعقب",component:TrackingComponent,title:"تعقب"},
     {path:"حاله التعقب",component:TrackingInfoComponent,title:"تعقب"},
     {path:"الاعدادات",component:UserSettingComponent,title:"الاعدادات"},
-    {path:"البحث",component:SearchBynameComponent,title:"البحث"},
     {path:"اضافه عنوان/:ID",component:DataForPayingComponent,title:"الاعدادات"},
    
     //must make not found component;
