@@ -8,6 +8,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideToastr } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { alertInterceptor } from './interceptor/alert.interceptor';
+import { errorInterceptor } from './interceptor/error.interceptor';
 
 
 export const appConfig: ApplicationConfig = {
@@ -15,7 +16,7 @@ export const appConfig: ApplicationConfig = {
   
   provideRouter(routes,withViewTransitions(),withComponentInputBinding(),withInMemoryScrolling({scrollPositionRestoration:"top"})),
   provideClientHydration(),
-  provideHttpClient(withFetch(),withInterceptors([alertInterceptor])),
+  provideHttpClient(withFetch(),withInterceptors([alertInterceptor,errorInterceptor])),
   provideAnimations(),
   provideToastr(),
   provideAnimations(),

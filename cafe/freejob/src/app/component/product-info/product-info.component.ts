@@ -1,12 +1,7 @@
 import { CartService } from './../../services/cart.service';
-import {
-  AfterContentInit,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
+import { AfterContentInit, Component, inject, signal } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { IproductInfo } from '../../interfaces/products';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { FavouriteService } from '../../services/favourite.service';
@@ -23,8 +18,8 @@ import { json } from 'stream/consumers';
   styleUrl: './product-info.component.scss',
 })
 export class ProductInfoComponent {
-  x=signal<boolean>(false)
- 
+  x = signal<boolean>(false);
+
   orderspeed = signal<boolean>(false);
 
   private readonly _ActivatedRoute = inject(ActivatedRoute);
@@ -39,25 +34,30 @@ export class ProductInfoComponent {
       this.id = p.get('id')!;
     });
 
-    this._FavouriteService.getAllFav().subscribe({
-      next: (res) => {
-        for (let i = 0; i < res.length; ++i) {
-          if (res[i].id == this.id) {
-            this.color = true;
+    if (
+      localStorage.getItem('userToken') &&
+      typeof localStorage !== undefined
+    ) {
+      this._FavouriteService.getAllFav().subscribe({
+        next: (res) => {
+          for (let i = 0; i < res.length; ++i) {
+            if (res[i].id == this.id) {
+              this.color = true;
+            }
           }
-        }
-      },
-      error: (err) => {
-      },
-    });
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
 
     this._ProductsService.specificProduct(this.id).subscribe({
       next: (res) => {
         this.products = res;
-        this.x.set(true)
+        this.x.set(true);
       },
-      error: (err) => {
-      },
+      error: (err) => {},
     });
   }
 
@@ -65,7 +65,6 @@ export class ProductInfoComponent {
 
   border(color: string) {
     this.colorc.set(color);
-
   }
 
   visible: boolean = false;
@@ -81,8 +80,7 @@ export class ProductInfoComponent {
           next: (res) => {
             this._ToastrService.error('تم الازاله من المفصله');
           },
-          error: (err) => {
-          },
+          error: (err) => {},
         });
       } else {
         this.color = true;
@@ -90,8 +88,7 @@ export class ProductInfoComponent {
           next: (res) => {
             this._ToastrService.success('تم الاضافه الي المفضله');
           },
-          error: (err) => {
-          },
+          error: (err) => {},
         });
       }
     } else {
@@ -113,7 +110,7 @@ export class ProductInfoComponent {
   dateValue = signal('');
   photoValue = signal<FileList>({} as FileList);
   pdfValue = signal<File>({} as File);
-  
+
   showPdf(e: Event) {
     const inputPdf = e.target as HTMLInputElement;
     if (inputPdf.files && inputPdf.files?.length !== 0) {
@@ -123,15 +120,18 @@ export class ProductInfoComponent {
   showPhoto(e: Event) {
     const inputPhoto = e.target as HTMLInputElement;
 
-
-
     if (inputPhoto.files && inputPhoto.files?.length !== 0) {
       this.photoValue.set(inputPhoto.files);
-      
     }
   }
 
+  _Router = inject(Router);
   addToCart(id: number) {
+    if(!localStorage.getItem('userToken'))
+    {
+      this._Router.navigate(['/تسجيل الدخول']);
+    }
+
     const hamada = new FormData();
     hamada.append('ProductId', this.id);
     hamada.append('Type', this.type());
@@ -140,36 +140,26 @@ export class ProductInfoComponent {
     hamada.append('Date', this.dateValue());
     hamada.append('FilePdf', this.pdfValue());
     if (this.photoValue()) {
-      
-      
       for (let i = 0; i < this.photoValue().length; i++) {
-        
         hamada.append('Photos', this.photoValue()[i]); // Append each file individually
-        
       }
-    
-     
-      
 
+      this.CartService.addToCart(hamada).subscribe({
+        next: (res) => {
+          console.log('hamada result ', res);
+          this._ToastrService.success('تم الاضافه الي العربه');
+        },
+        error: (err) => {
+          console.log(err);
+          // this._ToastrService.error(err.error.message);
+        
+        },
+      });
+    }
+    // hamada.forEach((key,value)=>{
+    //   console.log(key ,"key:",value);
 
-    this.CartService.addToCart(hamada).subscribe({
-      next: (res) => {
-        console.log('hamada result ', res);
-        this._ToastrService.success('تم الاضافه الي العربه');
-      },
-      error: (err) => {
-        console.log(err);
-        this._ToastrService.error('حاول الاضافه في وقت لاحق');
-      },
-    });
-  }
-  // hamada.forEach((key,value)=>{
-  //   console.log(key ,"key:",value);
-    
-
-  // });
-
-  
+    // });
   }
   updateCount(n: number) {
     if (this.q == 1 && n < 0) {

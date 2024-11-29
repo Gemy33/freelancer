@@ -3,7 +3,7 @@
   <h6 class="almarai-light mb-3">الحساب</h6>
   <h4 class="almarai-light d-flex  align-items-center gap-3  fs-2 position-relative">
    <div>
-    <img data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" [src]="userInfo.image" class="imgsty" [title]="userInfo.userName" [alt]="userInfo.userName" />
+    <img data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" [src]="userInfo?.image" class="imgsty" [title]="userInfo.userName" [alt]="userInfo.userName" />
 
 
     <input type="file" placeholder="enter" (change)="onsend($event)" id="files" class="d-none" />

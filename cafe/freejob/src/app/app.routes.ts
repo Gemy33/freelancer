@@ -24,6 +24,7 @@ import { AddressComponent } from './component/address/address.component';
 import { PayingInfoComponent } from './component/paying-info/paying-info.component';
 import { DataForPayingComponent } from './component/data-for-paying/data-for-paying.component';
 import { SearchBynameComponent } from './component/search-byname/search-byname.component';
+import { authGuard } from './gurds/auth.guard';
 
 export const routes: Routes = [
    {path:"",component:MainlayoutComponent,children:[
@@ -42,7 +43,7 @@ export const routes: Routes = [
 
     
 ]},
-{path:"",component:AuthlayoutComponent,children:[ //here must update redirectto
+{path:"",component:AuthlayoutComponent,canActivate:[authGuard],children:[ //here must update redirectto
     {path:"المفضلة",component:WishlistComponent,title:"المفضلة"},
     {path:"عربة الشراء",component:CartComponent,title:"عربة الشراء"},
     {path:"الدفع",component:PaymentComponent,title:"الدفع "},
@@ -54,7 +55,7 @@ export const routes: Routes = [
     //must make not found component;
 ]},
 {
-    path:"",component:SettingComponent,children:[
+    path:"",component:SettingComponent,canActivate:[authGuard],children:[
         {path:"عام",component:AcountOverviewComponent,title:"الاعدادات"},       
         {path:"كلمه السر",component:UserPasswordComponent,title:"password"},       
         {path:"الصفحه الشخصيه",component:PersonalPageComponent,title:"الاعدادات"},       
@@ -62,6 +63,6 @@ export const routes: Routes = [
         {path:"العنوان",component:AddressComponent,title:"الاعدادات"},       
         {path:"تفاصيل الدفع",component:PayingInfoComponent,title:"الاعدادات"},       
         {path:"المدينة",component:PayingInfoComponent,title:"الدفع"},       
-    ]
+]
 }
 ]

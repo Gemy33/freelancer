@@ -24,6 +24,7 @@ export class ProductComponent {
   private readonly _FavouriteService = inject(FavouriteService);
   private readonly _ToastrService = inject(ToastrService);
   private readonly _CartService= inject(CartService);
+  private readonly _Router= inject(Router);
   ID = signal<number>(0);
   @Input({ required: true }) allProduct: Products[] = [];
   @Input({ required: true }) favourit: boolean = false;
@@ -54,6 +55,11 @@ export class ProductComponent {
   // ------------------------------------------------------------
  
   addToCart(product:any){
+    if(!localStorage.getItem('userToken'))
+    {
+      this._Router.navigate(['/تسجيل الدخول']);
+
+    }
      let count:any=1
     const hamada=new FormData();
     hamada.append("ProductId",product.id)
