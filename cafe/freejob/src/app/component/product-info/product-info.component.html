@@ -1,6 +1,7 @@
+@if(x()){
 <section class=" px-2">
   <div class="path  px-4 pt-2 pb-1 mt-2 ">
-    <p class="m-0" class="cp d-flex " routerLink="/التسوق"> <span routerLink="/الصفحة الرئسية" >الصفحة الرئيسية</span>>التسوق | {{products.name}}</p>
+    <p class="m-0" class="cp d-flex " routerLink="/التسوق"> <span routerLink="/الصفحة الرئسية" >الصفحة الرئيسية</span>>التسوق | {{products.name }}</p>
   </div>
 
   <div class="container-fluid">
@@ -208,68 +209,4 @@
     </div>
 </section>
 
-
-<!-- <div class="w-100">
-    <div class=" flex bg-danger justify-content-center">
-        <p-dialog 
-            header="Header" 
-            [(visible)]="visible" 
-            [modal]="true" 
-            [style]="{ width: '25rem' }">
-            <ng-template pTemplate="header">
-                <div class="inline-flex align-items-center justify-content-center gap-2">
-                  <p-avatar
-                    image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-                    shape="circle"
-                  />
-                  <span class="font-bold white-space-nowrap"> تقييمي </span>
-                </div>
-              </ng-template>
-              <div>
-                <h2 class="p-text-secondary mt-0 block mb-5">مج حراري مطبوع.</h2>
-              <ul class="list-unstyled d-flex">
-                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
-                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
-                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
-                <li class="p-2 bg-danger ms-2"><i class="fa fa-star text-white"></i></li>
-              </ul>
-          
-              <form>
-                <div class="flex flex-column gap-3 mb-3">
-                  <label for="username" class="font-semibold w-6rem"> اكتب تقييمك </label>
-                  <textarea
-                    pInputText
-                    id="username"
-                    class="flex-auto"
-                    autocomplete="off"
-                  ></textarea>
-                </div>
-                <div class="flex flex-column gap-3 mb-3">
-                  <label for="username" class="font-semibold w-6rem"> الاسم </label>
-                  <input pInputText id="username" class="flex-auto" autocomplete="off" />
-                </div>
-                <div class="flex flex-column gap-3 mb-5">
-                  <label for="email" class="font-semibold w-6rem"
-                    >البريد الالكتروني</label
-                  >
-                  <input pInputText id="email" class="flex-auto" autocomplete="off" />
-                </div>
-              </form>
-              </div>
-              <ng-template pTemplate="footer">
-                <p-button
-                  label="Cancel"
-                  [text]="true"
-                  severity="secondary"
-                  (onClick)="visible = false"
-                />
-                <p-button
-                  label="Save"
-                  [outlined]="true"
-                  severity="secondary"
-                  (onClick)="visible = false"
-                />
-              </ng-template>
-        </p-dialog>
-    </div>
-</div> -->
+}

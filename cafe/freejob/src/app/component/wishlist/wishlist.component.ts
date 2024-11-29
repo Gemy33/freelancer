@@ -25,9 +25,7 @@ export class WishlistComponent implements OnInit {
     
     this._FavouriteService.getAllFav().subscribe({
       next:(res)=>{
-        console.log(res);
         this.allFavProduct=res;
-        console.log(this.allFavProduct);
         
         
       },

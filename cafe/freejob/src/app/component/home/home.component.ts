@@ -36,30 +36,19 @@ export class HomeComponent implements OnInit {
     
     this._ProductsService.allProducts().subscribe({
       next: (res) => {
-        console.log(res);
         this.all_products = res;
-        console.log(this.all_products, 'dfdf');
       },
       error: (err) => {
-        console.log(err);
       },
     });
   }
   addFav(id: number) {
-    // console.log("id",id.toString())
     if (!localStorage.getItem('userToken')) {
       this._Router.navigate(['تسجيل الدخول']);
     }
 
     
 
-    // this._FavouriteService.addToFav(id.toString()).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   },
-    // });
+
   }
 }

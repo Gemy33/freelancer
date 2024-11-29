@@ -16,18 +16,13 @@ token='';
       if (typeof localStorage !== 'undefined')
       {
        this.token= localStorage.getItem('userToken') !;
-       console.log(this.token);
        
       }
      
       
     
   }
-  print()
-  {
-    console.log(this.token);
-    
-  }
+ 
   getAllFav(): Observable<any> {
     return this._HttpClient.get(`${baseurl}/api/Favourite/GetAllFavorites`,{headers:{"Authorization":"Bearer "+this.token}});
   }

@@ -9,7 +9,7 @@ import { ProductsService } from '../../../services/products.service';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [CarouselModule, RouterLink, ProductComponent],
+  imports: [CarouselModule],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })
@@ -57,13 +57,10 @@ private readonly _ProductsService=inject(ProductsService)
     
     this._CategoriesService.get_specific_cat(id).subscribe({
       next:(res)=>{
-        console.log("ljdlkfjlsdkajf;lkjsdflkj;lj",res)
         this._ProductsService.specproducts.set(res.products)
-        // location.reload();
         
       },
       error:(err)=>{
-        console.log(err);
       }
     })
 
@@ -74,11 +71,9 @@ private readonly _ProductsService=inject(ProductsService)
   
     this._CategoriesService.getAllCategories().subscribe({
       next:(res)=>{
-        console.log(res)
         this.categories=res
       },
       error:(err)=>{
-        console.log(err)
       }
     })
   }
